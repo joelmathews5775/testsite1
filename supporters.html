@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our Monthly Supporters — DRAFTED UX</title>
+<meta name="description" content="A shoutout to the monthly Patreon supporters who help keep DRAFTED UX running.">
+<meta name="author" content="Joel Mathews">
+<meta name="keywords" content="DRAFTED UX supporters, Patreon supporters, UX design brief generator, UI UX design practice, project brief tool">
+
+<link rel="canonical" href="{{SITE_URL}}/supporters.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DRAFTED UX">
+<meta property="og:title" content="Our Monthly Supporters — DRAFTED UX">
+<meta property="og:description" content="A shoutout to the monthly Patreon supporters who help keep DRAFTED UX running.">
+<meta property="og:url" content="{{SITE_URL}}/supporters.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Our Monthly Supporters — DRAFTED UX">
+<meta name="twitter:description" content="A shoutout to the monthly Patreon supporters who help keep DRAFTED UX running.">
+
+<meta name="theme-color" content="#E9EEF3" id="theme-color-meta">
+<link rel="icon" id="favicon-link" href="favicon-light.png">
+
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <a class="brand" href="index.html">
+      <span class="brand__name">DRAFTED <span class="brand__accent">UX</span></span>
+    </a>
+
+    <div class="header-actions">
+      <button type="button"
+              id="theme-toggle"
+              class="theme-toggle"
+              aria-pressed="false"
+              aria-label="Switch to dark mode">
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <line x1="12" y1="2" x2="12" y2="4"></line>
+          <line x1="12" y1="20" x2="12" y2="22"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="2" y1="12" x2="4" y2="12"></line>
+          <line x1="20" y1="12" x2="22" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <span class="theme-toggle__track" aria-hidden="true">
+          <span class="theme-toggle__thumb"></span>
+        </span>
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+
+      <a id="support-btn"
+         class="btn btn--ghost btn--small"
+         href="{{PATREON_URL}}"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Support this project on Patreon (opens in a new tab)">
+        Support
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" style="padding-block: var(--space-8) var(--space-6);">
+    <div class="wrap">
+      <p class="hero__eyebrow"><span class="dot" aria-hidden="true"></span> Funded by real people, one month at a time</p>
+      <h1 style="max-width: 100%;">Our monthly <em>supporters</em></h1>
+      <p class="hero__sub" style="max-width: 62ch;">
+        DRAFTED UX runs on hosting, tools, and time — all of which cost real money every month.
+        The people below choose to help cover that on Patreon. This page is our way of saying thanks, out loud.
+      </p>
+    </div>
+  </section>
+
+  <section class="result-section" aria-labelledby="tier-heading-0">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2 id="tier-heading-0">Infrastructure Backer</h2>
+          <p>Keeps the domain renewed and hosting secure as the site grows beyond free-tier limits.</p>
+        </div>
+      </div>
+      <div class="supporter-list" id="tier-list-0" aria-live="polite">
+        <div class="empty-state"><h3>Loading supporters&hellip;</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="result-section" aria-labelledby="tier-heading-1">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2 id="tier-heading-1">Visionary Partner</h2>
+          <p>Funds the AI hardware needed to run open-source models locally and automate the platform.</p>
+        </div>
+      </div>
+      <div class="supporter-list" id="tier-list-1" aria-live="polite">
+        <div class="empty-state"><h3>Loading supporters&hellip;</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="result-section" aria-labelledby="tier-heading-2">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2 id="tier-heading-2">Buy the Dev a Coffee</h2>
+          <p>Fuels the day-to-day building, feature work, and bug fixes that keep the platform improving.</p>
+        </div>
+      </div>
+      <div class="supporter-list" id="tier-list-2" aria-live="polite">
+        <div class="empty-state"><h3>Loading supporters&hellip;</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="extra-tiers-section" hidden></section>
+
+  <section class="how-section" aria-labelledby="join-heading">
+    <div class="wrap">
+      <h2 id="join-heading">Want to see your name up here?</h2>
+      <p style="color: var(--ink-soft); max-width: 62ch; margin-top: var(--space-2);">
+        Every tier keeps DRAFTED UX running for everyone who uses it for free.
+        Join on <a id="join-patreon-link" href="{{PATREON_URL}}" target="_blank" rel="noopener noreferrer">Patreon</a> to grab a spot in the next update.
+      </p>
+      <p id="last-updated" style="color: var(--ink-faint); font-size: 0.85rem; margin-top: var(--space-4);"></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; <span id="copyright-year"></span> DRAFTED UX — practice briefs for UI/UX designers.</p>
+    <p><a href="supporters.html">Meet our monthly supporters</a></p>
+    <p><a href="mailto:{{CONTACT_EMAIL}}?subject=Bug%20report%20or%20issue">Report an issue</a></p>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var y = document.getElementById('copyright-year');
+    if (y) y.textContent = new Date().getFullYear();
+  });
+</script>
+<script src="js/theme.js"></script>
+<script src="js/supporters.js"></script>
+</body>
+</html>

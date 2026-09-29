@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DRAFTED UX — Real project briefs for UI/UX designers</title>
+<meta name="description" content="Pull a real-world UI/UX design brief matched to your skill level and platform, then design it for your portfolio.">
+<meta name="author" content="Joel Mathews">
+<meta name="keywords" content="UI/UX design brief generator, UX design practice, UI design practice, portfolio project ideas, design challenges for designers, UX case study ideas, mobile app design brief, web app design brief, design exercise generator, practice UX projects, UI UX portfolio builder">
+
+<!-- Canonical + social preview tags. SITE_URL is injected at build
+     time from an env var (see build.js) so the domain lives in one
+     place and survives a future domain change without editing HTML. -->
+<link rel="canonical" href="{{SITE_URL}}/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DRAFTED UX">
+<meta property="og:title" content="DRAFTED UX — Real project briefs for UI/UX designers">
+<meta property="og:description" content="Pull a real-world UI/UX design brief matched to your skill level and platform, then design it for your portfolio.">
+<meta property="og:url" content="{{SITE_URL}}/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DRAFTED UX — Real project briefs for UI/UX designers">
+<meta name="twitter:description" content="Pull a real-world UI/UX design brief matched to your skill level and platform, then design it for your portfolio.">
+
+<!-- Synced to the active theme (not just OS preference) by theme.js,
+     since the in-page toggle can override the OS setting. -->
+<meta name="theme-color" content="#E9EEF3" id="theme-color-meta">
+
+<link rel="icon" id="favicon-link" href="favicon-light.png">
+
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <a class="brand" href="#top">
+      <span class="brand__name">DRAFTED <span class="brand__accent">UX</span></span>
+    </a>
+
+    <div class="header-actions">
+      <button type="button"
+              id="theme-toggle"
+              class="theme-toggle"
+              aria-pressed="false"
+              aria-label="Switch to dark mode">
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <line x1="12" y1="2" x2="12" y2="4"></line>
+          <line x1="12" y1="20" x2="12" y2="22"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="2" y1="12" x2="4" y2="12"></line>
+          <line x1="20" y1="12" x2="22" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <span class="theme-toggle__track" aria-hidden="true">
+          <span class="theme-toggle__thumb"></span>
+        </span>
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+
+      <a id="support-btn"
+         class="btn btn--ghost btn--small"
+         href="{{PATREON_URL}}"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Support this project on Patreon (opens in a new tab)">
+        Support
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" id="top">
+    <div class="wrap hero__grid">
+      <div>
+        <p class="hero__eyebrow"><span class="dot" aria-hidden="true"></span> A new brief, every time you ask</p>
+        <h1>Practice on problems <em>real</em> design teams actually get handed.</h1>
+        <p class="hero__sub">
+          DRAFTED UX hands you a complete, realistic UI/UX brief — the problem, the users,
+          the screens, the constraints — sized to your skill level. Design it, ship it to your
+          portfolio, pull the next one.
+        </p>
+      </div>
+
+      <div class="hero__panel">
+        <form id="generator-form">
+          <div class="hero__panel-intro">
+            <h2>Pull a brief</h2>
+            <span class="hint">Choose what you want to practice, or leave both on "Any" for a surprise.</span>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="skill-select">Skill level</label>
+              <select id="skill-select" name="skill">
+                <option value="any">Any</option>
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="platform-select">Platform</label>
+              <select id="platform-select" name="platform">
+                <option value="any">Any</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn--primary" id="generate-btn">
+            Generate a brief
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="result-section" aria-labelledby="result-heading">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2 id="result-heading">Your brief</h2>
+          <p>Read it like a ticket from a client. Everything you need to start designing is here.</p>
+        </div>
+        <button type="button" class="btn btn--ghost btn--small" id="another-btn" hidden>
+          Pull another
+        </button>
+      </div>
+
+      <div id="result-region" aria-live="polite">
+        <div class="empty-state" id="empty-state">
+          <h3>No brief pulled yet</h3>
+          <p>Set your filters above and generate one — it takes about two seconds.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="saved-section" aria-labelledby="saved-heading">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2 id="saved-heading">Your saved briefs</h2>
+          <p>Saved for this browser session only — download them if you want to keep them for good.</p>
+        </div>
+        <button type="button" class="btn btn--ghost btn--small" id="download-saved-btn" hidden>
+          Download saved briefs
+        </button>
+      </div>
+      <div id="saved-region"></div>
+    </div>
+  </section>
+
+  <section class="how-section" aria-labelledby="how-heading">
+    <div class="wrap">
+      <h2 id="how-heading">How it works</h2>
+      <ol class="how-list">
+        <li>
+          <h3>Set your level and platform</h3>
+          <p>Every brief is tagged by difficulty and by the platform it's designed for, from a smartwatch app to a full responsive site.</p>
+        </li>
+        <li>
+          <h3>Get a full brief, not a one-liner</h3>
+          <p>Overview, the problem to solve, target users, key screens, constraints, and deliverables — everything a real client hand-off would include.</p>
+        </li>
+        <li>
+          <h3>Save it, design it, then ship it</h3>
+          <p>Save a brief to keep it on your list for this session, or download your saved briefs to keep them for good and design the flow.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; <span id="copyright-year"></span> DRAFTED UX — practice briefs for UI/UX designers.</p>
+    <p><a href="supporters.html">Meet our monthly supporters</a></p>
+    <p><a href="mailto:{{CONTACT_EMAIL}}?subject=Bug%20report%20or%20issue">Report an issue</a></p>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script src="js/data.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

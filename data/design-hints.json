@@ -1,0 +1,2647 @@
+[
+  {
+    "ticketId": "DX-7512",
+    "styleDirection": {
+      "name": "Friendly workshop",
+      "summary": "Warm and hands-on, like a neighborhood repair bench: approachable enough for someone who has never asked for help, calm enough to feel like a small good deed rather than a chore.",
+      "keywords": [
+        "Warm",
+        "Practical",
+        "Reassuring",
+        "Thumb-first"
+      ]
+    },
+    "colorPalette": {
+      "primary": {
+        "name": "Workshop Teal",
+        "hex": "#1B6B5A",
+        "onColor": "#FFFFFF",
+        "usage": "Primary buttons (Snap a photo, Book a spot), active tab, progress indicator."
+      },
+      "secondary": {
+        "name": "Copper Tool",
+        "hex": "#C4581A",
+        "usage": "Accent for the next-event date chip, item-type highlights, and empty-state illustrations. Use sparingly so it stays a highlight."
+      },
+      "semantic": [
+        {
+          "role": "Success",
+          "name": "Fixed Green",
+          "hex": "#2E7D32",
+          "usage": "Booking confirmed banner and checkmark."
+        },
+        {
+          "role": "Warning",
+          "name": "Almost Full",
+          "hex": "#8A5A00",
+          "usage": "Event nearly full, photo too dark to read."
+        },
+        {
+          "role": "Error",
+          "name": "Needs Attention",
+          "hex": "#B3261E",
+          "usage": "Missing description, upload failed, field errors."
+        },
+        {
+          "role": "Info",
+          "name": "Bring List Blue",
+          "hex": "#1D5FA8",
+          "usage": "\"What to bring\" hints and repair-cafe rules."
+        }
+      ],
+      "surfacesAndText": [
+        {
+          "role": "Background",
+          "name": "Warm Paper",
+          "hex": "#FAF6EF",
+          "usage": "App background behind cards."
+        },
+        {
+          "role": "Surface",
+          "name": "Card White",
+          "hex": "#FFFFFF",
+          "usage": "Cards, list rows, bottom sheets, form fields."
+        },
+        {
+          "role": "Text primary",
+          "name": "Bench Ink",
+          "hex": "#1E2B27",
+          "usage": "Headlines and body copy."
+        },
+        {
+          "role": "Text secondary",
+          "name": "Sawdust Grey",
+          "hex": "#55625D",
+          "usage": "Captions, distances, helper text."
+        },
+        {
+          "role": "Border",
+          "name": "Soft Line",
+          "hex": "#D9D2C5",
+          "usage": "Dividers and input outlines."
+        }
+      ],
+      "contrast": [
+        {
+          "pair": "Text primary on Background",
+          "foreground": "#1E2B27",
+          "background": "#FAF6EF",
+          "ratio": "13.6:1",
+          "wcag": "AAA"
+        },
+        {
+          "pair": "Text primary on Surface",
+          "foreground": "#1E2B27",
+          "background": "#FFFFFF",
+          "ratio": "14.7:1",
+          "wcag": "AAA"
+        },
+        {
+          "pair": "Text secondary on Surface",
+          "foreground": "#55625D",
+          "background": "#FFFFFF",
+          "ratio": "6.4:1",
+          "wcag": "AA"
+        },
+        {
+          "pair": "Button label on Primary",
+          "foreground": "#FFFFFF",
+          "background": "#1B6B5A",
+          "ratio": "6.4:1",
+          "wcag": "AA"
+        }
+      ]
+    },
+    "typography": {
+      "typefaces": [
+        {
+          "role": "Headings",
+          "family": "Plus Jakarta Sans",
+          "fallback": "-apple-system, \"Segoe UI\", Roboto, sans-serif",
+          "weights": "600, 700",
+          "rationale": "Rounded geometry feels friendly without looking childish, and it stays legible when the phone is held at a distance during a photo."
+        },
+        {
+          "role": "Body & UI",
+          "family": "Inter",
+          "fallback": "-apple-system, \"Segoe UI\", Roboto, sans-serif",
+          "weights": "400, 500, 600",
+          "rationale": "Neutral, highly readable on small screens for addresses, dates and form text."
+        }
+      ],
+      "scale": [
+        {
+          "token": "Display",
+          "size": "28px",
+          "weight": 700,
+          "lineHeight": "34px",
+          "usage": "Onboarding headline."
+        },
+        {
+          "token": "Title",
+          "size": "22px",
+          "weight": 700,
+          "lineHeight": "28px",
+          "usage": "Screen titles."
+        },
+        {
+          "token": "Subtitle",
+          "size": "18px",
+          "weight": 600,
+          "lineHeight": "24px",
+          "usage": "Repair cafe names, section headers."
+        },
+        {
+          "token": "Body",
+          "size": "16px",
+          "weight": 400,
+          "lineHeight": "24px",
+          "usage": "Descriptions and form inputs."
+        },
+        {
+          "token": "Caption",
+          "size": "13px",
+          "weight": 500,
+          "lineHeight": "18px",
+          "usage": "Distance, event date chips, helper text."
+        }
+      ],
+      "lineHeightAndSpacing": {
+        "bodyLineHeight": "1.5",
+        "headingLineHeight": "1.2",
+        "letterSpacing": "0 for body, -0.01em for Display and Title",
+        "paragraphSpacing": "12px between paragraphs, 8px between a title and its subtext",
+        "notes": [
+          "Keep a 16px minimum for anything the user has to read or type.",
+          "Limit list-row copy to two lines and truncate the rest so rows stay a predictable height."
+        ]
+      }
+    },
+    "gridAndSpacing": {
+      "layoutGrid": {
+        "columns": "4 columns",
+        "gutter": "16px",
+        "margin": "16px",
+        "maxWidth": "430px (design at 390px wide)",
+        "notes": "Single-column flow. Cards span all 4 columns; the item-type chips on onboarding use a 2-up layout of 2 columns each."
+      },
+      "spacingSystem": {
+        "baseUnit": "4px",
+        "scale": [
+          {
+            "token": "space-1",
+            "value": "4px"
+          },
+          {
+            "token": "space-2",
+            "value": "8px"
+          },
+          {
+            "token": "space-3",
+            "value": "12px"
+          },
+          {
+            "token": "space-4",
+            "value": "16px"
+          },
+          {
+            "token": "space-5",
+            "value": "24px"
+          },
+          {
+            "token": "space-6",
+            "value": "32px"
+          },
+          {
+            "token": "space-7",
+            "value": "48px"
+          }
+        ],
+        "usage": "Use 16px inside cards, 24px between cards, and 32px between major sections."
+      },
+      "whiteSpace": [
+        "Leave at least 24px above the primary button so it never crowds the last field.",
+        "Put the primary action in the bottom third of the screen for one-handed reach, with 16px clear space beneath it plus the safe area.",
+        "One idea per screen: onboarding, photo, list and confirmation each get their own space rather than sharing one."
+      ]
+    },
+    "elevation": {
+      "levels": [
+        {
+          "level": 0,
+          "name": "Base",
+          "shadow": "none",
+          "usage": "Screen background and flat text areas."
+        },
+        {
+          "level": 1,
+          "name": "Card",
+          "shadow": "0 1px 2px rgba(30,43,39,0.10), 0 1px 3px rgba(30,43,39,0.08)",
+          "usage": "Repair cafe cards and list rows."
+        },
+        {
+          "level": 2,
+          "name": "Sticky bar",
+          "shadow": "0 -2px 8px rgba(30,43,39,0.12)",
+          "usage": "Bottom action bar holding the primary button."
+        },
+        {
+          "level": 3,
+          "name": "Sheet",
+          "shadow": "0 -8px 24px rgba(30,43,39,0.20)",
+          "usage": "Photo source picker and booking bottom sheets, over a 40% scrim."
+        }
+      ],
+      "dropShadow": {
+        "color": "rgba(30, 43, 39, 0.10) to 0.20 (tinted from Bench Ink, never pure black)",
+        "style": "Soft, low offset, blur 2 to 24px",
+        "notes": "Shadows point upward for bottom-anchored elements so they read as lifting off the screen edge."
+      },
+      "visualPriority": [
+        "The primary button is the only element with a filled Teal background on each screen.",
+        "Cards stay quiet at level 1 so the sheet at level 3 clearly owns attention when it opens.",
+        "Use the Copper accent for one highlight per card at most, such as the next event date."
+      ]
+    }
+  },
+  {
+    "ticketId": "DX-7513",
+    "styleDirection": {
+      "name": "Quiet utility",
+      "summary": "A compact, native-feeling popup that disappears into the browser. Dense but calm, so a researcher with 30 tabs can scan and save in one glance.",
+      "keywords": [
+        "Compact",
+        "Native",
+        "Scannable",
+        "Low-noise"
+      ]
+    },
+    "colorPalette": {
+      "primary": {
+        "name": "Stash Indigo",
+        "hex": "#3548C9",
+        "onColor": "#FFFFFF",
+        "usage": "Save group and Restore all buttons, focus rings, checked checkboxes."
+      },
+      "secondary": {
+        "name": "Marker Amber",
+        "hex": "#B96A00",
+        "usage": "Tab count badges and the most recently saved group indicator."
+      },
+      "semantic": [
+        {
+          "role": "Success",
+          "name": "Saved Green",
+          "hex": "#1E7B45",
+          "usage": "Group saved inline confirmation."
+        },
+        {
+          "role": "Warning",
+          "name": "Duplicate Amber",
+          "hex": "#8A5A00",
+          "usage": "Duplicate group name, tabs that cannot be restored."
+        },
+        {
+          "role": "Error",
+          "name": "Failed Red",
+          "hex": "#B42318",
+          "usage": "Save failed, empty name field."
+        },
+        {
+          "role": "Info",
+          "name": "Hint Blue",
+          "hex": "#1F5FA6",
+          "usage": "Inline tips such as \"Pinned tabs are skipped\"."
+        }
+      ],
+      "surfacesAndText": [
+        {
+          "role": "Background",
+          "name": "Popup Grey",
+          "hex": "#F4F5F8",
+          "usage": "Popup background and list separators."
+        },
+        {
+          "role": "Surface",
+          "name": "Row White",
+          "hex": "#FFFFFF",
+          "usage": "Tab rows, group rows, input fields."
+        },
+        {
+          "role": "Text primary",
+          "name": "Tab Ink",
+          "hex": "#161A26",
+          "usage": "Tab titles and group names."
+        },
+        {
+          "role": "Text secondary",
+          "name": "Host Grey",
+          "hex": "#525A6E",
+          "usage": "URLs, hostnames and counts."
+        },
+        {
+          "role": "Border",
+          "name": "Hairline",
+          "hex": "#D5D9E3",
+          "usage": "1px row dividers and input borders."
+        }
+      ],
+      "contrast": [
+        {
+          "pair": "Text primary on Background",
+          "foreground": "#161A26",
+          "background": "#F4F5F8",
+          "ratio": "15.9:1",
+          "wcag": "AAA"
+        },
+        {
+          "pair": "Text primary on Surface",
+          "foreground": "#161A26",
+          "background": "#FFFFFF",
+          "ratio": "17.4:1",
+          "wcag": "AAA"
+        },
+        {
+          "pair": "Text secondary on Surface",
+          "foreground": "#525A6E",
+          "background": "#FFFFFF",
+          "ratio": "6.9:1",
+          "wcag": "AA"
+        },
+        {
+          "pair": "Button label on Primary",
+          "foreground": "#FFFFFF",
+          "background": "#3548C9",
+          "ratio": "7.2:1",
+          "wcag": "AAA"
+        }
+      ]
+    },
+    "typography": {
+      "typefaces": [
+        {
+          "role": "Headings",
+          "family": "System UI",
+          "fallback": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "weights": "600",
+          "rationale": "The brief requires system fonts only, so hierarchy comes from weight and size instead of a second typeface."
+        },
+        {
+          "role": "Body & UI",
+          "family": "System UI",
+          "fallback": "system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+          "weights": "400, 500",
+          "rationale": "Matches the browser chrome so the popup feels native and loads instantly."
+        }
+      ],
+      "scale": [
+        {
+          "token": "Title",
+          "size": "16px",
+          "weight": 600,
+          "lineHeight": "22px",
+          "usage": "Popup header and group names on the detail view."
+        },
+        {
+          "token": "Body",
+          "size": "14px",
+          "weight": 400,
+          "lineHeight": "20px",
+          "usage": "Tab titles and inputs."
+        },
+        {
+          "token": "Label",
+          "size": "13px",
+          "weight": 500,
+          "lineHeight": "18px",
+          "usage": "Buttons and form labels."
+        },
+        {
+          "token": "Caption",
+          "size": "12px",
+          "weight": 400,
+          "lineHeight": "16px",
+          "usage": "Hostnames and tab counts. Never go below 12px."
+        }
+      ],
+      "lineHeightAndSpacing": {
+        "bodyLineHeight": "1.4",
+        "headingLineHeight": "1.3",
+        "letterSpacing": "0",
+        "paragraphSpacing": "8px",
+        "notes": [
+          "Truncate tab titles to one line with an ellipsis and show the full title in a tooltip.",
+          "Use tabular numerals for tab counts so badges align down the list."
+        ]
+      }
+    },
+    "gridAndSpacing": {
+      "layoutGrid": {
+        "columns": "Single column, 400px fixed width",
+        "gutter": "8px",
+        "margin": "12px",
+        "maxWidth": "400 x 600px popup",
+        "notes": "Header (48px) and footer action bar (56px) are fixed, and the middle list scrolls. That keeps Save and Restore always visible without scrolling."
+      },
+      "spacingSystem": {
+        "baseUnit": "4px",
+        "scale": [
+          {
+            "token": "space-1",
+            "value": "4px"
+          },
+          {
+            "token": "space-2",
+            "value": "8px"
+          },
+          {
+            "token": "space-3",
+            "value": "12px"
+          },
+          {
+            "token": "space-4",
+            "value": "16px"
+          },
+          {
+            "token": "space-5",
+            "value": "24px"
+          },
+          {
+            "token": "space-6",
+            "value": "32px"
+          }
+        ],
+        "usage": "Rows are 40px tall with 12px horizontal padding, and controls use 8px gaps."
+      },
+      "whiteSpace": [
+        "Density is a feature here, but keep at least 8px between rows and their checkboxes so targets do not blur together.",
+        "Do not add empty-state illustrations; a single line of text and one button is enough within 600px height.",
+        "Keep 12px of padding around the popup edge, since the browser adds its own frame."
+      ]
+    },
+    "elevation": {
+      "levels": [
+        {
+          "level": 0,
+          "name": "Flat",
+          "shadow": "none",
+          "usage": "Popup background and rows, separated by 1px dividers.",
+          "border": "1px solid #D5D9E3"
+        },
+        {
+          "level": 1,
+          "name": "Sticky bar",
+          "shadow": "0 -1px 0 rgba(22,26,38,0.08), 0 -4px 8px rgba(22,26,38,0.06)",
+          "usage": "Footer with Save group and Restore all."
+        },
+        {
+          "level": 2,
+          "name": "Menu",
+          "shadow": "0 4px 12px rgba(22,26,38,0.16)",
+          "usage": "Overflow menu and tooltips."
+        }
+      ],
+      "dropShadow": {
+        "color": "rgba(22, 26, 38, 0.06) to 0.16",
+        "style": "Very subtle, small blur",
+        "notes": "The browser already draws a shadow around the whole popup, so inner layers stay minimal to avoid a double-shadow look."
+      },
+      "visualPriority": [
+        "Rely on dividers and fills over shadows, and reserve elevation for the footer and menus.",
+        "The footer button is the only solid Indigo fill, so the next action is obvious.",
+        "Selected rows get a light indigo tint and a 3px left bar instead of a shadow."
+      ]
+    }
+  },
+  {
+    "ticketId": "DX-7514",
+    "styleDirection": {
+      "name": "Calm focus",
+      "summary": "A quiet daily planner that feels like a clear desk. Restrained color, strong hierarchy, and one obvious top priority so the day never feels overwhelming.",
+      "keywords": [
+        "Focused",
+        "Minimal",
+        "Ranked",
+        "Compact"
+      ]
+    },
+    "colorPalette": {
+      "primary": {
+        "name": "Focus Slate Blue",
+        "hex": "#3A55A4",
+        "onColor": "#FFFFFF",
+        "usage": "Add task button, selected task row, focus rings."
+      },
+      "secondary": {
+        "name": "Priority Coral",
+        "hex": "#C6452B",
+        "usage": "Marks the #1 priority task and the streak counter in the summary. One coral element on screen at a time."
+      },
+      "semantic": [
+        {
+          "role": "Success",
+          "name": "Done Green",
+          "hex": "#26794A",
+          "usage": "Completed tasks and the end-of-day summary check."
+        },
+        {
+          "role": "Warning",
+          "name": "Overdue Amber",
+          "hex": "#8C5A00",
+          "usage": "Tasks carried over from yesterday."
+        },
+        {
+          "role": "Error",
+          "name": "Error Red",
+          "hex": "#B3261E",
+          "usage": "Empty title, invalid time."
+        },
+        {
+          "role": "Info",
+          "name": "Tip Blue",
+          "hex": "#1F5A9E",
+          "usage": "Empty-state prompt and shortcut hints."
+        }
+      ],
+      "surfacesAndText": [
+        {
+          "role": "Background",
+          "name": "Desk Grey",
+          "hex": "#F1F3F7",
+          "usage": "Window background."
+        },
+        {
+          "role": "Surface",
+          "name": "Task White",
+          "hex": "#FFFFFF",
+          "usage": "Task rows, modal, inputs."
+        },
+        {
+          "role": "Text primary",
+          "name": "Graphite",
+          "hex": "#171B26",
+          "usage": "Task titles, headings."
+        },
+        {
+          "role": "Text secondary",
+          "name": "Slate Text",
+          "hex": "#505A6E",
+          "usage": "Times, notes, secondary labels."
+        },
+        {
+          "role": "Border",
+          "name": "Pencil Line",
+          "hex": "#D3D8E2",
+          "usage": "Row dividers and input borders."
+        }
+      ],
+      "contrast": [
+        {
+          "pair": "Text primary on Background",
+          "foreground": "#171B26",
+          "background": "#F1F3F7",
+          "ratio": "15.5:1",
+          "wcag": "AAA"
+        },
+        {
+          "pair": "Text primary on Surface",
+          "foreground": "#171B26",
+          "background": "#FFFFFF",
+          "ratio": "17.2:1",
+          "wcag": "AAA"
+        },
+        {
+          "pair": "Text secondary on Surface",
+          "foreground": "#505A6E",
+          "background": "#FFFFFF",
+          "ratio": "6.9:1",
+          "wcag": "AA"
+        },
+        {
+          "pair": "Button label on Primary",
+          "foreground": "#FFFFFF",
+          "background": "#3A55A4",
+          "ratio": "7.0:1",
+          "wcag": "AA"
+        }
+      ]
+    },
+    "typography": {
+      "typefaces": [
+        {
+          "role": "Headings",
+          "family": "IBM Plex Sans",
+          "fallback": "\"Segoe UI\", system-ui, sans-serif",
+          "weights": "600",
+          "rationale": "Sturdy and slightly technical, which suits a productivity tool without feeling cold."
+        },
+        {
+          "role": "Body & UI",
+          "family": "IBM Plex Sans",
+          "fallback": "\"Segoe UI\", system-ui, sans-serif",
+          "weights": "400, 500",
+          "rationale": "One family keeps a small window uncluttered. Pair with IBM Plex Mono for task times."
+        }
+      ],
+      "scale": [
+        {
+          "token": "Title",
+          "size": "20px",
+          "weight": 600,
+          "lineHeight": "26px",
+          "usage": "Today header and summary headline."
+        },
+        {
+          "token": "Task",
+          "size": "16px",
+          "weight": 500,
+          "lineHeight": "22px",
+          "usage": "Task titles in the ranked list."
+        },
+        {
+          "token": "Body",
+          "size": "14px",
+          "weight": 400,
+          "lineHeight": "20px",
+          "usage": "Notes and modal fields."
+        },
+        {
+          "token": "Caption",
+          "size": "12px",
+          "weight": 400,
+          "lineHeight": "16px",
+          "usage": "Times and rank numbers, set in tabular figures."
+        }
+      ],
+      "lineHeightAndSpacing": {
+        "bodyLineHeight": "1.45",
+        "headingLineHeight": "1.25",
+        "letterSpacing": "0, with +0.02em for uppercase captions",
+        "paragraphSpacing": "8px",
+        "notes": [
+          "Rank numbers use tabular figures so 1 through 9 align in a column.",
+          "Keep task titles to one line at 16px and let long titles truncate; full text appears in the edit modal."
+        ]
+      }
+    },
+    "gridAndSpacing": {
+      "layoutGrid": {
+        "columns": "12 columns inside a fixed 600 x 400 window",
+        "gutter": "16px",
+        "margin": "24px",
+        "maxWidth": "600px fixed",
+        "notes": "Header takes 56px and the list scrolls in the remaining ~344px. Tasks span all 12 columns; the modal spans columns 2 to 11."
+      },
+      "spacingSystem": {
+        "baseUnit": "4px",
+        "scale": [
+          {
+            "token": "space-1",
+            "value": "4px"
+          },
+          {
+            "token": "space-2",
+            "value": "8px"
+          },
+          {
+            "token": "space-3",
+            "value": "12px"
+          },
+          {
+            "token": "space-4",
+            "value": "16px"
+          },
+          {
+            "token": "space-5",
+            "value": "24px"
+          },
+          {
+            "token": "space-6",
+            "value": "32px"
+          }
+        ],
+        "usage": "Task rows are 44px with 12px vertical padding, and 24px window margin."
+      },
+      "whiteSpace": [
+        "Show at most 5 tasks before the list scrolls so the window never feels crowded.",
+        "Leave 16px clear space around the add button since the window cannot resize.",
+        "Give the empty state a generous, centered layout with a single call to action."
+      ]
+    },
+    "elevation": {
+      "levels": [
+        {
+          "level": 0,
+          "name": "Window",
+          "shadow": "none",
+          "usage": "Window background; the OS draws the window shadow."
+        },
+        {
+          "level": 1,
+          "name": "Task row",
+          "shadow": "0 1px 2px rgba(23,27,38,0.08)",
+          "usage": "Task rows, with a slight lift on hover."
+        },
+        {
+          "level": 2,
+          "name": "Dragging",
+          "shadow": "0 6px 16px rgba(23,27,38,0.16)",
+          "usage": "A task row being reordered."
+        },
+        {
+          "level": 3,
+          "name": "Modal",
+          "shadow": "0 12px 32px rgba(23,27,38,0.24)",
+          "usage": "Add/edit task modal over a 35% scrim."
+        }
+      ],
+      "dropShadow": {
+        "color": "rgba(23, 27, 38, 0.08) to 0.24",
+        "style": "Soft and vertical, offset y only",
+        "notes": "Never use horizontal offsets; the small window has no room for shadows to spill to the sides."
+      },
+      "visualPriority": [
+        "The top-ranked task gets the coral rank marker and a heavier weight; the rest stay neutral.",
+        "The modal is the only level-3 element, so it clearly takes over focus.",
+        "Completed tasks fade to secondary text with a green check and drop to level 0."
+      ]
+    }
+  },
+  {
+    "ticketId": "DX-7515",
+    "styleDirection": {
+      "name": "Fresh boutique",
+      "summary": "Soft, editorial and personal, like a small flower shop window. Lets bouquet photography lead, with quiet color and elegant type that still gets a busy customer to checkout quickly.",
+      "keywords": [
+        "Fresh",
+        "Editorial",
+        "Personal",
+        "Photo-led"
+      ]
+    },
+    "colorPalette": {
+      "primary": {
+        "name": "Deep Rose",
+        "hex": "#A3324F",
+        "onColor": "#FFFFFF",
+        "usage": "Add to cart, Place order, and links."
+      },
+      "secondary": {
+        "name": "Leaf Green",
+        "hex": "#3F6B47",
+        "usage": "Size selectors, \"Ready for pickup\" badges, and section accents."
+      },
+      "semantic": [
+        {
+          "role": "Success",
+          "name": "Order Green",
+          "hex": "#2C7A45",
+          "usage": "Order placed confirmation."
+        },
+        {
+          "role": "Warning",
+          "name": "Low Stock Amber",
+          "hex": "#8A5800",
+          "usage": "\"Only 2 left today\" and unavailable pickup slots."
+        },
+        {
+          "role": "Error",
+          "name": "Form Red",
+          "hex": "#B3261E",
+          "usage": "Form validation and failed payment."
+        },
+        {
+          "role": "Info",
+          "name": "Note Blue",
+          "hex": "#245E9E",
+          "usage": "Pickup instructions and shop hours."
+        }
+      ],
+      "surfacesAndText": [
+        {
+          "role": "Background",
+          "name": "Cream",
+          "hex": "#FFF8F3",
+          "usage": "Page background."
+        },
+        {
+          "role": "Surface",
+          "name": "Petal White",
+          "hex": "#FFFFFF",
+          "usage": "Bouquet cards, cart panel, forms."
+        },
+        {
+          "role": "Text primary",
+          "name": "Stem Ink",
+          "hex": "#2B2024",
+          "usage": "Headings and body copy."
+        },
+        {
+          "role": "Text secondary",
+          "name": "Soft Plum",
+          "hex": "#5F4C53",
+          "usage": "Descriptions and prices in lists."
+        },
+        {
+          "role": "Border",
+          "name": "Blush Line",
+          "hex": "#E9D7D6",
+          "usage": "Dividers and card outlines."
+        }
+      ],
+      "contrast": [
+        {
+          "pair": "Text primary on Background",
+          "foreground": "#2B2024",
+          "background": "#FFF8F3",
+          "ratio": "15.0:1",
+          "wcag": "AAA"
+        },
+        {
+          "pair": "Text primary on Surface",
+          "foreground": "#2B2024",
+          "background": "#FFFFFF",
+          "ratio": "15.7:1",
+          "wcag": "AAA"
+        },
+        {
+          "pair": "Text secondary on Surface",
+          "foreground": "#5F4C53",
+          "background": "#FFFFFF",
+          "ratio": "7.9:1",
+          "wcag": "AAA"
+        },
+        {
+          "pair": "Button label on Primary",
+          "foreground": "#FFFFFF",
+          "background": "#A3324F",
+          "ratio": "6.7:1",
+          "wcag": "AA"
+        }
+      ]
+    },
+    "typography": {
+      "typefaces": [
+        {
+          "role": "Headings",
+          "family": "Cormorant Garamond",
+          "fallback": "Georgia, \"Times New Roman\", serif",
+          "weights": "500, 600",
+          "rationale": "Elegant high-contrast serif that feels handcrafted and gives the shop a boutique identity."
+        },
+        {
+          "role": "Body & UI",
+          "family": "Nunito Sans",
+          "fallback": "-apple-system, \"Segoe UI\", Roboto, sans-serif",
+          "weights": "400, 600, 700",
+          "rationale": "Clear, friendly sans for prices, forms and buttons, and it stays readable on a phone during a work break."
+        }
+      ],
+      "scale": [
+        {
+          "token": "Display",
+          "size": "48px (32px on mobile)",
+          "weight": 500,
+          "lineHeight": "1.1",
+          "usage": "Home hero headline."
+        },
+        {
+          "token": "H2",
+          "size": "32px (26px on mobile)",
+          "weight": 600,
+          "lineHeight": "1.2",
+          "usage": "Section titles and bouquet names on detail page."
+        },
+        {
+          "token": "H3",
+          "size": "22px",
+          "weight": 600,
+          "lineHeight": "1.3",
+          "usage": "Bouquet card titles."
+        },
+        {
+          "token": "Body",
+          "size": "17px",
+          "weight": 400,
+          "lineHeight": "1.6",
+          "usage": "Descriptions and form help."
+        },
+        {
+          "token": "Price & Button",
+          "size": "16px",
+          "weight": 700,
+          "lineHeight": "1.25",
+          "usage": "Prices, buttons and size options."
+        }
+      ],
+      "lineHeightAndSpacing": {
+        "bodyLineHeight": "1.6",
+        "headingLineHeight": "1.1 to 1.3",
+        "letterSpacing": "0 for body; +0.06em for small uppercase labels",
+        "paragraphSpacing": "16px",
+        "notes": [
+          "Keep body lines to 60 to 70 characters wide on desktop.",
+          "Set prices in bold sans, not the serif, so they scan quickly between photos."
+        ]
+      }
+    },
+    "gridAndSpacing": {
+      "layoutGrid": {
+        "columns": "4 (mobile) / 8 (tablet) / 12 (desktop)",
+        "gutter": "16px / 24px / 32px",
+        "margin": "16px / 32px / 64px",
+        "maxWidth": "1200px content width",
+        "notes": "Bouquet cards show 1 per row on mobile, 2 on tablet and 3 or 4 on desktop. Breakpoints at 640px and 1024px."
+      },
+      "spacingSystem": {
+        "baseUnit": "8px",
+        "scale": [
+          {
+            "token": "space-1",
+            "value": "8px"
+          },
+          {
+            "token": "space-2",
+            "value": "16px"
+          },
+          {
+            "token": "space-3",
+            "value": "24px"
+          },
+          {
+            "token": "space-4",
+            "value": "32px"
+          },
+          {
+            "token": "space-5",
+            "value": "48px"
+          },
+          {
+            "token": "space-6",
+            "value": "64px"
+          },
+          {
+            "token": "space-7",
+            "value": "96px"
+          }
+        ],
+        "usage": "Use 24px inside cards, 48px between page sections on mobile, and 96px on desktop."
+      },
+      "whiteSpace": [
+        "Let photos breathe with 24 to 32px around each card; crowding hides the product.",
+        "Give the home hero at least 96px of vertical padding on desktop so it feels like a shop window.",
+        "Keep the checkout flow narrow (max 640px) with generous spacing to reduce hesitation."
+      ]
+    },
+    "elevation": {
+      "levels": [
+        {
+          "level": 0,
+          "name": "Page",
+          "shadow": "none",
+          "usage": "Backgrounds and text sections."
+        },
+        {
+          "level": 1,
+          "name": "Card",
+          "shadow": "0 2px 8px rgba(163,50,79,0.08)",
+          "usage": "Bouquet cards."
+        },
+        {
+          "level": 2,
+          "name": "Hover / sticky",
+          "shadow": "0 8px 24px rgba(163,50,79,0.14)",
+          "usage": "Card on hover and the sticky header once the page scrolls."
+        },
+        {
+          "level": 3,
+          "name": "Cart drawer",
+          "shadow": "0 16px 40px rgba(43,32,36,0.22)",
+          "usage": "Cart drawer and pickup time picker over a scrim."
+        }
+      ],
+      "dropShadow": {
+        "color": "Rose-tinted rgba(163, 50, 79, 0.08 to 0.14) for cards; neutral ink for overlays",
+        "style": "Soft, wide blur with low opacity",
+        "notes": "Tinting shadows with the brand rose keeps the page warm rather than grey."
+      },
+      "visualPriority": [
+        "Photography is the hero: keep overlays and shadows quiet around images.",
+        "Add to cart and Place order are the only solid Deep Rose fills.",
+        "The cart drawer at level 3 sits above everything else so checkout feels focused."
+      ]
+    }
+  },
+  {
+    "ticketId": "DX-7516",
+    "styleDirection": {
+      "name": "Big, calm, high-contrast",
+      "summary": "Gentle but unmistakable. A dark, OLED-friendly interface with very large type and only one action per screen so an older adult can respond confidently with a single tap.",
+      "keywords": [
+        "High-contrast",
+        "Large type",
+        "One action",
+        "Gentle"
+      ]
+    },
+    "colorPalette": {
+      "primary": {
+        "name": "Calm Blue",
+        "hex": "#6DB3FF",
+        "onColor": "#001B36",
+        "usage": "Next-dose time, complication ring and the main Confirm control outline."
+      },
+      "secondary": {
+        "name": "Snooze Amber",
+        "hex": "#FFC857",
+        "usage": "Snooze button and a dose that is due soon."
+      },
+      "semantic": [
+        {
+          "role": "Success",
+          "name": "Taken Green",
+          "hex": "#4ADE80",
+          "usage": "Confirm taken state and history checkmarks."
+        },
+        {
+          "role": "Warning",
+          "name": "Due Soon",
+          "hex": "#FFC857",
+          "usage": "Dose due within 15 minutes."
+        },
+        {
+          "role": "Error",
+          "name": "Missed Coral",
+          "hex": "#FF7A7A",
+          "usage": "Missed dose in history."
+        },
+        {
+          "role": "Info",
+          "name": "Neutral Cyan",
+          "hex": "#7AD7F0",
+          "usage": "Informational text such as the next reminder."
+        }
+      ],
+      "surfacesAndText": [
+        {
+          "role": "Background",
+          "name": "OLED Black",
+          "hex": "#000000",
+          "usage": "Screen background; true black saves battery and maximizes contrast."
+        },
+        {
+          "role": "Surface",
+          "name": "Card Charcoal",
+          "hex": "#1C1C1F",
+          "usage": "History rows and buttons."
+        },
+        {
+          "role": "Text primary",
+          "name": "Pure White",
+          "hex": "#FFFFFF",
+          "usage": "Times, dose names, button labels."
+        },
+        {
+          "role": "Text secondary",
+          "name": "Soft Grey",
+          "hex": "#C7CBD3",
+          "usage": "Dates and small helper text."
+        },
+        {
+          "role": "Border",
+          "name": "Ring Grey",
+          "hex": "#4A4D55",
+          "usage": "Outlines for buttons and history rows."
+        }
+      ],
+      "contrast": [
+        {
+          "pair": "Text primary on Background",
+          "foreground": "#FFFFFF",
+          "background": "#000000",
+          "ratio": "21.0:1",
+          "wcag": "AAA"
+        },
+        {
+          "pair": "Text primary on Surface",
+          "foreground": "#FFFFFF",
+          "background": "#1C1C1F",
+          "ratio": "17.0:1",
+          "wcag": "AAA"
+        },
+        {
+          "pair": "Text secondary on Surface",
+          "foreground": "#C7CBD3",
+          "background": "#1C1C1F",
+          "ratio": "10.5:1",
+          "wcag": "AAA"
+        },
+        {
+          "pair": "Button label on Primary",
+          "foreground": "#001B36",
+          "background": "#6DB3FF",
+          "ratio": "7.9:1",
+          "wcag": "AAA"
+        },
+        {
+          "pair": "Confirm green on Background",
+          "foreground": "#4ADE80",
+          "background": "#000000",
+          "ratio": "12.1:1",
+          "wcag": "AAA"
+        },
+        {
+          "pair": "Snooze amber on Background",
+          "foreground": "#FFC857",
+          "background": "#000000",
+          "ratio": "13.7:1",
+          "wcag": "AAA"
+        },
+        {
+          "pair": "Missed coral on Surface",
+          "foreground": "#FF7A7A",
+          "background": "#1C1C1F",
+          "ratio": "6.7:1",
+          "wcag": "AA"
+        }
+      ]
+    },
+    "typography": {
+      "typefaces": [
+        {
+          "role": "Headings",
+          "family": "Atkinson Hyperlegible",
+          "fallback": "\"SF Compact\", Roboto, sans-serif",
+          "weights": "700",
+          "rationale": "Designed for low-vision readability; distinct letterforms reduce misreading of dose names and numbers."
+        },
+        {
+          "role": "Body & UI",
+          "family": "Atkinson Hyperlegible",
+          "fallback": "\"SF Compact\", Roboto, sans-serif",
+          "weights": "400, 700",
+          "rationale": "A single family keeps the tiny screen simple. Use the platform system font if custom fonts are not available on watch."
+        }
+      ],
+      "scale": [
+        {
+          "token": "Time",
+          "size": "44pt",
+          "weight": 700,
+          "lineHeight": "48pt",
+          "usage": "Dose time on the reminder and the complication."
+        },
+        {
+          "token": "Title",
+          "size": "26pt",
+          "weight": 700,
+          "lineHeight": "30pt",
+          "usage": "Medication name."
+        },
+        {
+          "token": "Button",
+          "size": "22pt",
+          "weight": 700,
+          "lineHeight": "26pt",
+          "usage": "Taken and Snooze labels."
+        },
+        {
+          "token": "Body",
+          "size": "18pt",
+          "weight": 400,
+          "lineHeight": "24pt",
+          "usage": "History entries. Never go below 18pt."
+        }
+      ],
+      "lineHeightAndSpacing": {
+        "bodyLineHeight": "1.3",
+        "headingLineHeight": "1.1",
+        "letterSpacing": "+0.01em to keep small text open",
+        "paragraphSpacing": "8pt",
+        "notes": [
+          "Use sentence case and two lines maximum per element.",
+          "Use bold weights over thin ones because thin strokes shimmer on small OLED screens."
+        ]
+      }
+    },
+    "gridAndSpacing": {
+      "layoutGrid": {
+        "columns": "Single column",
+        "gutter": "8pt",
+        "margin": "12% inset on round faces / 10pt on square faces",
+        "maxWidth": "Fit 40 to 45mm watch faces (about 200 x 240pt)",
+        "notes": "Stack elements vertically and keep content inside the safe circle. Place the main action in the lower half where the thumb rests."
+      },
+      "spacingSystem": {
+        "baseUnit": "4pt",
+        "scale": [
+          {
+            "token": "space-1",
+            "value": "4px"
+          },
+          {
+            "token": "space-2",
+            "value": "8px"
+          },
+          {
+            "token": "space-3",
+            "value": "12px"
+          },
+          {
+            "token": "space-4",
+            "value": "16px"
+          },
+          {
+            "token": "space-5",
+            "value": "24px"
+          },
+          {
+            "token": "space-6",
+            "value": "32px"
+          }
+        ],
+        "usage": "Buttons are at least 48pt tall with 8pt between them, so a fumbled tap never hits the wrong one."
+      },
+      "whiteSpace": [
+        "One primary message and one or two buttons per screen; leave the rest black.",
+        "Keep at least 8pt between the two buttons to prevent mis-taps.",
+        "Avoid content in the corners of round faces where it gets clipped."
+      ]
+    },
+    "elevation": {
+      "levels": [
+        {
+          "level": 0,
+          "name": "Base",
+          "shadow": "none",
+          "usage": "True black screen background."
+        },
+        {
+          "level": 1,
+          "name": "Raised fill",
+          "shadow": "none",
+          "usage": "Charcoal fill #1C1C1F for rows and buttons.",
+          "border": "1px solid #4A4D55"
+        },
+        {
+          "level": 2,
+          "name": "Active",
+          "shadow": "none",
+          "usage": "Pressed or focused control: lighter fill and 2px colored outline.",
+          "border": "2px solid #6DB3FF"
+        }
+      ],
+      "dropShadow": {
+        "color": "None",
+        "style": "Do not use drop shadows",
+        "notes": "Shadows disappear against black and add noise on small OLED screens. Use lighter fills and outlines to show depth instead."
+      },
+      "visualPriority": [
+        "The main action gets the largest tap area, color fill and boldest label.",
+        "Snooze is outlined only, so it is available but clearly secondary.",
+        "Layering is expressed through lighter surface tones and outlines, never shadows."
+      ]
+    }
+  },
+  {
+    "ticketId": "DX-7517",
+    "styleDirection": {
+      "name": "Bright toybox",
+      "summary": "Playful, chunky and forgiving. Big rounded shapes, bold color and icon-only controls that a 4 to 7 year old can understand without reading.",
+      "keywords": [
+        "Playful",
+        "Chunky",
+        "Icon-first",
+        "Forgiving"
+      ]
+    },
+    "colorPalette": {
+      "primary": {
+        "name": "Sky Blue",
+        "hex": "#2456D6",
+        "onColor": "#FFFFFF",
+        "usage": "Save and Share buttons, selected tool ring."
+      },
+      "secondary": {
+        "name": "Sunshine Yellow",
+        "hex": "#FFC400",
+        "usage": "Highlights, celebration moments after saving, and the selected-color halo."
+      },
+      "semantic": [
+        {
+          "role": "Success",
+          "name": "Saved Green",
+          "hex": "#1F8F4E",
+          "usage": "Drawing saved and sent to the parent device."
+        },
+        {
+          "role": "Warning",
+          "name": "Oops Orange",
+          "hex": "#B45300",
+          "usage": "Gentle prompts, such as \"Ask a grown-up\"."
+        },
+        {
+          "role": "Error",
+          "name": "Friendly Red",
+          "hex": "#C62D3A",
+          "usage": "Delete confirmation; always paired with an icon and a parent gate."
+        },
+        {
+          "role": "Info",
+          "name": "Helper Purple",
+          "hex": "#6A3FC4",
+          "usage": "Tips and mascot speech bubbles."
+        }
+      ],
+      "surfacesAndText": [
+        {
+          "role": "Background",
+          "name": "Soft Cream",
+          "hex": "#FFF7E6",
+          "usage": "App chrome around the canvas."
+        },
+        {
+          "role": "Surface",
+          "name": "Paper White",
+          "hex": "#FFFFFF",
+          "usage": "Drawing canvas and gallery tiles."
+        },
+        {
+          "role": "Text primary",
+          "name": "Night Indigo",
+          "hex": "#22214A",
+          "usage": "The few text labels, such as parent setup."
+        },
+        {
+          "role": "Text secondary",
+          "name": "Dusk Indigo",
+          "hex": "#4A4877",
+          "usage": "Parent-facing helper text."
+        },
+        {
+          "role": "Border",
+          "name": "Crayon Line",
+          "hex": "#E5D8BC",
+          "usage": "Outlines around tools and gallery tiles."
+        }
+      ],
+      "contrast": [
+        {
+          "pair": "Text primary on Background",
+          "foreground": "#22214A",
+          "background": "#FFF7E6",
+          "ratio": "14.2:1",
+          "wcag": "AAA"
+        },
+        {
+          "pair": "Text primary on Surface",
+          "foreground": "#22214A",
+          "background": "#FFFFFF",
+          "ratio": "15.2:1",
+          "wcag": "AAA"
+        },
+        {
+          "pair": "Text secondary on Surface",
+          "foreground": "#4A4877",
+          "background": "#FFFFFF",
+          "ratio": "8.5:1",
+          "wcag": "AAA"
+        },
+        {
+          "pair": "Button label on Primary",
+          "foreground": "#FFFFFF",
+          "background": "#2456D6",
+          "ratio": "6.2:1",
+          "wcag": "AA"
+        },
+        {
+          "pair": "Yellow accent against Night Indigo",
+          "foreground": "#FFC400",
+          "background": "#22214A",
+          "ratio": "9.5:1",
+          "wcag": "AAA"
+        }
+      ]
+    },
+    "typography": {
+      "typefaces": [
+        {
+          "role": "Headings",
+          "family": "Baloo 2",
+          "fallback": "\"Comic Neue\", \"Trebuchet MS\", sans-serif",
+          "weights": "600, 700",
+          "rationale": "Round and bubbly with friendly proportions that children respond to."
+        },
+        {
+          "role": "Body & UI",
+          "family": "Nunito",
+          "fallback": "\"Trebuchet MS\", \"Segoe UI\", sans-serif",
+          "weights": "600, 700",
+          "rationale": "Rounded terminals and open forms for the small amount of parent-facing text."
+        }
+      ],
+      "scale": [
+        {
+          "token": "Display",
+          "size": "40px",
+          "weight": 700,
+          "lineHeight": "46px",
+          "usage": "Celebration message (\"All saved!\")."
+        },
+        {
+          "token": "Title",
+          "size": "28px",
+          "weight": 700,
+          "lineHeight": "34px",
+          "usage": "Screen titles for parent setup."
+        },
+        {
+          "token": "Body",
+          "size": "20px",
+          "weight": 600,
+          "lineHeight": "30px",
+          "usage": "Parent-facing text. Minimum size is 20px."
+        },
+        {
+          "token": "Label",
+          "size": "18px",
+          "weight": 700,
+          "lineHeight": "24px",
+          "usage": "The occasional text label under an icon."
+        }
+      ],
+      "lineHeightAndSpacing": {
+        "bodyLineHeight": "1.5",
+        "headingLineHeight": "1.15",
+        "letterSpacing": "+0.01em",
+        "paragraphSpacing": "16px",
+        "notes": [
+          "Use as little text as possible; every child-facing action needs an icon that works alone.",
+          "Set text for adults in higher contrast and at larger sizes than usual for a tablet."
+        ]
+      }
+    },
+    "gridAndSpacing": {
+      "layoutGrid": {
+        "columns": "12 columns (landscape tablet)",
+        "gutter": "24px",
+        "margin": "32px",
+        "maxWidth": "Full-bleed canvas; chrome inside 1024 x 768 logical points",
+        "notes": "Palette dock runs down the left (96px), the canvas takes the centre, and brush sizes sit in a right rail. The layout mirrors for left-handed use."
+      },
+      "spacingSystem": {
+        "baseUnit": "8px",
+        "scale": [
+          {
+            "token": "space-1",
+            "value": "8px"
+          },
+          {
+            "token": "space-2",
+            "value": "16px"
+          },
+          {
+            "token": "space-3",
+            "value": "24px"
+          },
+          {
+            "token": "space-4",
+            "value": "32px"
+          },
+          {
+            "token": "space-5",
+            "value": "48px"
+          },
+          {
+            "token": "space-6",
+            "value": "64px"
+          },
+          {
+            "token": "space-7",
+            "value": "80px"
+          }
+        ],
+        "usage": "Touch targets are at least 72px square with 16px minimum between them."
+      },
+      "whiteSpace": [
+        "Give color swatches 16px between them so small fingers do not hit two at once.",
+        "Keep the canvas as large as possible; controls stay in the margins.",
+        "Use big empty margins around Save so it cannot be tapped by accident during drawing."
+      ]
+    },
+    "elevation": {
+      "levels": [
+        {
+          "level": 0,
+          "name": "Canvas",
+          "shadow": "none",
+          "usage": "Flat drawing surface."
+        },
+        {
+          "level": 1,
+          "name": "Sticker",
+          "shadow": "0 4px 0 rgba(34,33,74,0.18)",
+          "usage": "Color swatches and tool buttons: chunky shadow like a physical sticker."
+        },
+        {
+          "level": 2,
+          "name": "Pressed",
+          "shadow": "0 1px 0 rgba(34,33,74,0.18)",
+          "usage": "Button pressed: the shadow shrinks so it sinks into the page."
+        },
+        {
+          "level": 3,
+          "name": "Popup",
+          "shadow": "0 12px 0 rgba(34,33,74,0.20), 0 20px 40px rgba(34,33,74,0.20)",
+          "usage": "Save and share dialog over a soft scrim."
+        }
+      ],
+      "dropShadow": {
+        "color": "rgba(34, 33, 74, 0.18 to 0.20)",
+        "style": "Hard-edged offset shadow with zero blur for level 1 to 3, giving a toy-like feel",
+        "notes": "A visible press state (the shadow shrinking) doubles as feedback for children who need to see that a tap registered."
+      },
+      "visualPriority": [
+        "The selected color and tool get a thick yellow halo so state is obvious without reading.",
+        "The canvas stays the largest and flattest element; all controls sit around it.",
+        "Only one dialog at a time, always centered, with a big Sky Blue action."
+      ]
+    }
+  },
+  {
+    "ticketId": "DX-7518",
+    "styleDirection": {
+      "name": "Kitchen-counter clarity",
+      "summary": "Warm and appetizing, and readable from across the room with floury hands. Visuals only support the voice: clear listening states and big, glanceable recipe text.",
+      "keywords": [
+        "Appetizing",
+        "Glanceable",
+        "Hands-free",
+        "Clear states"
+      ]
+    },
+    "colorPalette": {
+      "primary": {
+        "name": "Basil Green",
+        "hex": "#2A6B43",
+        "onColor": "#FFFFFF",
+        "usage": "Listening ring, primary buttons and active voice-state indicator."
+      },
+      "secondary": {
+        "name": "Tomato",
+        "hex": "#C13F24",
+        "usage": "Highlights key ingredients in the recipe and marks the \"Try another\" action."
+      },
+      "semantic": [
+        {
+          "role": "Success",
+          "name": "Heard Green",
+          "hex": "#2A7A45",
+          "usage": "Ingredient confirmed."
+        },
+        {
+          "role": "Warning",
+          "name": "Unsure Amber",
+          "hex": "#8A5800",
+          "usage": "Low-confidence ingredient that needs confirming."
+        },
+        {
+          "role": "Error",
+          "name": "Missed Red",
+          "hex": "#B3261E",
+          "usage": "\"Sorry, I didn't catch that\" state and connection loss."
+        },
+        {
+          "role": "Info",
+          "name": "Prompt Blue",
+          "hex": "#1F5A9E",
+          "usage": "Suggested phrases the user can say."
+        }
+      ],
+      "surfacesAndText": [
+        {
+          "role": "Background",
+          "name": "Flour",
+          "hex": "#FBF7EE",
+          "usage": "Companion screen background."
+        },
+        {
+          "role": "Surface",
+          "name": "Plate White",
+          "hex": "#FFFFFF",
+          "usage": "Recipe cards and ingredient list."
+        },
+        {
+          "role": "Text primary",
+          "name": "Espresso",
+          "hex": "#1F1B18",
+          "usage": "Recipe title, steps and ingredients."
+        },
+        {
+          "role": "Text secondary",
+          "name": "Pantry Brown",
+          "hex": "#544A42",
+          "usage": "Times, servings and helper lines."
+        },
+        {
+          "role": "Border",
+          "name": "Crust",
+          "hex": "#E0D6C5",
+          "usage": "Card outlines and dividers."
+        }
+      ],
+      "contrast": [
+        {
+          "pair": "Text primary on Background",
+          "foreground": "#1F1B18",
+          "background": "#FBF7EE",
+          "ratio": "16.0:1",
+          "wcag": "AAA"
+        },
+        {
+          "pair": "Text primary on Surface",
+          "foreground": "#1F1B18",
+          "background": "#FFFFFF",
+          "ratio": "17.1:1",
+          "wcag": "AAA"
+        },
+        {
+          "pair": "Text secondary on Surface",
+          "foreground": "#544A42",
+          "background": "#FFFFFF",
+          "ratio": "8.6:1",
+          "wcag": "AAA"
+        },
+        {
+          "pair": "Button label on Primary",
+          "foreground": "#FFFFFF",
+          "background": "#2A6B43",
+          "ratio": "6.4:1",
+          "wcag": "AA"
+        }
+      ]
+    },
+    "typography": {
+      "typefaces": [
+        {
+          "role": "Headings",
+          "family": "Fraunces",
+          "fallback": "Georgia, serif",
+          "weights": "600, 700",
+          "rationale": "A soft, characterful serif that feels like a cookbook and stays readable at large sizes."
+        },
+        {
+          "role": "Body & UI",
+          "family": "Lexend",
+          "fallback": "\"Segoe UI\", Roboto, sans-serif",
+          "weights": "400, 500, 600",
+          "rationale": "Designed to improve reading speed, so steps are easy to read from a distance."
+        }
+      ],
+      "scale": [
+        {
+          "token": "Display",
+          "size": "40px",
+          "weight": 700,
+          "lineHeight": "46px",
+          "usage": "Recipe name on the companion screen."
+        },
+        {
+          "token": "Step",
+          "size": "28px",
+          "weight": 500,
+          "lineHeight": "38px",
+          "usage": "Current recipe step, readable from arm's length or more."
+        },
+        {
+          "token": "Ingredient",
+          "size": "22px",
+          "weight": 500,
+          "lineHeight": "32px",
+          "usage": "Ingredient list."
+        },
+        {
+          "token": "Caption",
+          "size": "16px",
+          "weight": 400,
+          "lineHeight": "24px",
+          "usage": "Time, servings and the \"You can say\" hints."
+        }
+      ],
+      "lineHeightAndSpacing": {
+        "bodyLineHeight": "1.5",
+        "headingLineHeight": "1.15",
+        "letterSpacing": "0 for body; +0.02em on Lexend at small sizes",
+        "paragraphSpacing": "20px",
+        "notes": [
+          "Voice prompts: keep them to 12 words or fewer, with the question at the end.",
+          "Every confirmation repeats the key words, such as \"Chicken, rice, and onions. Is that right?\""
+        ]
+      }
+    },
+    "gridAndSpacing": {
+      "layoutGrid": {
+        "columns": "4 columns (companion screen); voice flow uses a turn-taking sequence rather than a grid",
+        "gutter": "24px",
+        "margin": "24px",
+        "maxWidth": "720px readable width",
+        "notes": "Companion content is a single large column so it can be read without touching. Ingredients and steps stack; no side-by-side panels."
+      },
+      "spacingSystem": {
+        "baseUnit": "8px",
+        "scale": [
+          {
+            "token": "space-1",
+            "value": "8px"
+          },
+          {
+            "token": "space-2",
+            "value": "16px"
+          },
+          {
+            "token": "space-3",
+            "value": "24px"
+          },
+          {
+            "token": "space-4",
+            "value": "32px"
+          },
+          {
+            "token": "space-5",
+            "value": "48px"
+          },
+          {
+            "token": "space-6",
+            "value": "64px"
+          },
+          {
+            "token": "space-7",
+            "value": "96px"
+          }
+        ],
+        "usage": "Use 24px between ingredient lines and 40px between recipe sections for easy scanning."
+      },
+      "whiteSpace": [
+        "One step at a time: show the current step large and hide the rest behind a small \"Next\" hint.",
+        "Leave 48px of space around the listening indicator so its state is unmistakable.",
+        "Do not fill the screen; empty space helps the cook find their place when glancing back."
+      ]
+    },
+    "elevation": {
+      "levels": [
+        {
+          "level": 0,
+          "name": "Base",
+          "shadow": "none",
+          "usage": "Screen background."
+        },
+        {
+          "level": 1,
+          "name": "Card",
+          "shadow": "0 2px 6px rgba(31,27,24,0.10)",
+          "usage": "Recipe and ingredient cards."
+        },
+        {
+          "level": 2,
+          "name": "Listening glow",
+          "shadow": "0 0 0 8px rgba(42,107,67,0.18), 0 0 0 16px rgba(42,107,67,0.10)",
+          "usage": "Pulsing ring around the listening indicator, animated softly."
+        },
+        {
+          "level": 3,
+          "name": "Overlay",
+          "shadow": "0 14px 36px rgba(31,27,24,0.24)",
+          "usage": "Error or \"Try again\" overlay."
+        }
+      ],
+      "dropShadow": {
+        "color": "rgba(31, 27, 24, 0.10 to 0.24)",
+        "style": "Warm brown-tinted, medium blur",
+        "notes": "The glow used for listening is a ring, not a shadow, so it reads as a state and not a decoration."
+      },
+      "visualPriority": [
+        "Listening, thinking and speaking each have a distinct color and animation so the state is clear.",
+        "The current recipe step is the largest thing on the screen; ingredients sit at a lower level.",
+        "Errors use level 3 overlays so they cannot be missed from across the kitchen."
+      ]
+    }
+  },
+  {
+    "ticketId": "DX-7519",
+    "styleDirection": {
+      "name": "Clear and dependable",
+      "summary": "A straightforward, no-nonsense scheduling tool. Status is communicated through clear color coding and labels so a busy employee on a shared break-room computer can post or claim a shift in under a minute.",
+      "keywords": [
+        "Dependable",
+        "Status-driven",
+        "Efficient",
+        "Plain"
+      ]
+    },
+    "colorPalette": {
+      "primary": {
+        "name": "Shift Navy",
+        "hex": "#1D4F9F",
+        "onColor": "#FFFFFF",
+        "usage": "Post a shift, Claim shift, and primary navigation."
+      },
+      "secondary": {
+        "name": "Open Teal",
+        "hex": "#0B7A75",
+        "usage": "Marks open shifts on the board and \"Available\" tags."
+      },
+      "semantic": [
+        {
+          "role": "Success",
+          "name": "Swapped Green",
+          "hex": "#1E7A45",
+          "usage": "Swap confirmed and claimed shifts."
+        },
+        {
+          "role": "Warning",
+          "name": "Pending Amber",
+          "hex": "#8A5800",
+          "usage": "Awaiting manager approval and shifts starting soon."
+        },
+        {
+          "role": "Error",
+          "name": "Conflict Red",
+          "hex": "#B42318",
+          "usage": "Scheduling conflicts and form errors."
+        },
+        {
+          "role": "Info",
+          "name": "Notice Blue",
+          "hex": "#1F5FA6",
+          "usage": "Policy notes and \"Sign out when finished\" reminder."
+        }
+      ],
+      "surfacesAndText": [
+        {
+          "role": "Background",
+          "name": "Break-room Grey",
+          "hex": "#F2F4F7",
+          "usage": "App background."
+        },
+        {
+          "role": "Surface",
+          "name": "Panel White",
+          "hex": "#FFFFFF",
+          "usage": "Schedule table, forms and shift cards."
+        },
+        {
+          "role": "Text primary",
+          "name": "Schedule Ink",
+          "hex": "#18202B",
+          "usage": "Dates, times and shift names."
+        },
+        {
+          "role": "Text secondary",
+          "name": "Meta Grey",
+          "hex": "#4B5565",
+          "usage": "Roles, locations and helper text."
+        },
+        {
+          "role": "Border",
+          "name": "Table Line",
+          "hex": "#D0D5DD",
+          "usage": "Table rows and card outlines."
+        }
+      ],
+      "contrast": [
+        {
+          "pair": "Text primary on Background",
+          "foreground": "#18202B",
+          "background": "#F2F4F7",
+          "ratio": "14.9:1",
+          "wcag": "AAA"
+        },
+        {
+          "pair": "Text primary on Surface",
+          "foreground": "#18202B",
+          "background": "#FFFFFF",
+          "ratio": "16.4:1",
+          "wcag": "AAA"
+        },
+        {
+          "pair": "Text secondary on Surface",
+          "foreground": "#4B5565",
+          "background": "#FFFFFF",
+          "ratio": "7.5:1",
+          "wcag": "AAA"
+        },
+        {
+          "pair": "Button label on Primary",
+          "foreground": "#FFFFFF",
+          "background": "#1D4F9F",
+          "ratio": "7.9:1",
+          "wcag": "AAA"
+        }
+      ]
+    },
+    "typography": {
+      "typefaces": [
+        {
+          "role": "Headings",
+          "family": "Source Sans 3",
+          "fallback": "\"Segoe UI\", Arial, sans-serif",
+          "weights": "600, 700",
+          "rationale": "Clean, highly legible and compact, which keeps schedule tables tidy."
+        },
+        {
+          "role": "Body & UI",
+          "family": "Source Sans 3",
+          "fallback": "\"Segoe UI\", Arial, sans-serif",
+          "weights": "400, 600",
+          "rationale": "Works well on older shared computers with unpredictable displays. Use tabular figures for times and dates."
+        }
+      ],
+      "scale": [
+        {
+          "token": "H1",
+          "size": "28px",
+          "weight": 700,
+          "lineHeight": "34px",
+          "usage": "Page titles (\"My schedule\")."
+        },
+        {
+          "token": "H2",
+          "size": "20px",
+          "weight": 600,
+          "lineHeight": "28px",
+          "usage": "Section titles."
+        },
+        {
+          "token": "Body",
+          "size": "16px",
+          "weight": 400,
+          "lineHeight": "24px",
+          "usage": "Forms and table text."
+        },
+        {
+          "token": "Table",
+          "size": "15px",
+          "weight": 500,
+          "lineHeight": "22px",
+          "usage": "Shift times and names in dense tables."
+        },
+        {
+          "token": "Caption",
+          "size": "13px",
+          "weight": 400,
+          "lineHeight": "18px",
+          "usage": "Metadata such as who posted the shift."
+        }
+      ],
+      "lineHeightAndSpacing": {
+        "bodyLineHeight": "1.5",
+        "headingLineHeight": "1.25",
+        "letterSpacing": "0",
+        "paragraphSpacing": "12px",
+        "notes": [
+          "Use tabular numerals so times line up in columns.",
+          "Write dates with weekday first (\"Thu, 12 Jun\") to match how staff think about shifts."
+        ]
+      }
+    },
+    "gridAndSpacing": {
+      "layoutGrid": {
+        "columns": "12 columns",
+        "gutter": "24px",
+        "margin": "24px",
+        "maxWidth": "1200px, collapsing to a single column under 768px",
+        "notes": "Schedule takes 8 columns and the open shifts board 4 on desktop; they stack on smaller screens. Breakpoints at 768px and 1024px."
+      },
+      "spacingSystem": {
+        "baseUnit": "8px",
+        "scale": [
+          {
+            "token": "space-1",
+            "value": "8px"
+          },
+          {
+            "token": "space-2",
+            "value": "16px"
+          },
+          {
+            "token": "space-3",
+            "value": "24px"
+          },
+          {
+            "token": "space-4",
+            "value": "32px"
+          },
+          {
+            "token": "space-5",
+            "value": "48px"
+          },
+          {
+            "token": "space-6",
+            "value": "64px"
+          }
+        ],
+        "usage": "Table rows have 12px vertical padding; forms use 24px between fields."
+      },
+      "whiteSpace": [
+        "Keep table rows at least 48px tall so clicking is easy with a trackpad or an old mouse.",
+        "Leave 32px between the schedule and the open shifts board so they read as separate tasks.",
+        "Keep forms in a single column, with generous space around the submit button."
+      ]
+    },
+    "elevation": {
+      "levels": [
+        {
+          "level": 0,
+          "name": "Page",
+          "shadow": "none",
+          "usage": "Backgrounds and table rows."
+        },
+        {
+          "level": 1,
+          "name": "Card",
+          "shadow": "0 1px 2px rgba(24,32,43,0.10)",
+          "usage": "Shift cards on the open board and form panels.",
+          "border": "1px solid #D0D5DD"
+        },
+        {
+          "level": 2,
+          "name": "Dropdown",
+          "shadow": "0 6px 16px rgba(24,32,43,0.14)",
+          "usage": "Menus and date pickers."
+        },
+        {
+          "level": 3,
+          "name": "Modal",
+          "shadow": "0 16px 40px rgba(24,32,43,0.24)",
+          "usage": "Swap confirmation dialog and session timeout warning."
+        }
+      ],
+      "dropShadow": {
+        "color": "rgba(24, 32, 43, 0.10 to 0.24)",
+        "style": "Subtle, mostly vertical",
+        "notes": "Pair every card shadow with a 1px border so cards stay visible on low-contrast, older monitors."
+      },
+      "visualPriority": [
+        "Open shifts use Teal tags so they stand out from the user's own shifts.",
+        "Status tags (Open, Pending, Swapped) always combine color with a text label, never color alone.",
+        "The confirmation modal is the highest level so the final swap step cannot be missed."
+      ]
+    }
+  },
+  {
+    "ticketId": "DX-7520",
+    "styleDirection": {
+      "name": "Neighborly and trustworthy",
+      "summary": "Generous and warm, but with visible trust signals. Verification, ratings and status are clear and consistent so neighbors feel safe meeting up to share food.",
+      "keywords": [
+        "Neighborly",
+        "Trustworthy",
+        "Fresh",
+        "Status-aware"
+      ]
+    },
+    "colorPalette": {
+      "primary": {
+        "name": "Harvest Green",
+        "hex": "#25703A",
+        "onColor": "#FFFFFF",
+        "usage": "Claim, Post item and Confirm pickup."
+      },
+      "secondary": {
+        "name": "Carrot Orange",
+        "hex": "#C2500F",
+        "usage": "Expiry countdowns and \"Ending soon\" highlights on listings."
+      },
+      "semantic": [
+        {
+          "role": "Success",
+          "name": "Picked Up",
+          "hex": "#1F7A3E",
+          "usage": "Pickup confirmed and claimed state."
+        },
+        {
+          "role": "Warning",
+          "name": "Expiring",
+          "hex": "#8A5800",
+          "usage": "Listing about to expire, pickup window closing."
+        },
+        {
+          "role": "Error",
+          "name": "No-show / Expired",
+          "hex": "#B3261E",
+          "usage": "Expired listings, no-shows and failed posts."
+        },
+        {
+          "role": "Info",
+          "name": "Verified Blue",
+          "hex": "#1B5FBF",
+          "usage": "Verified-neighbor badge and safety tips."
+        }
+      ],
+      "surfacesAndText": [
+        {
+          "role": "Background",
+          "name": "Garden Cream",
+          "hex": "#F9F8F1",
+          "usage": "App background."
+        },
+        {
+          "role": "Surface",
+          "name": "Basket White",
+          "hex": "#FFFFFF",
+          "usage": "Listing cards, chat bubbles, bottom sheets."
+        },
+        {
+          "role": "Text primary",
+          "name": "Soil",
+          "hex": "#1C271F",
+          "usage": "Headlines and body copy."
+        },
+        {
+          "role": "Text secondary",
+          "name": "Leaf Grey",
+          "hex": "#4F5D53",
+          "usage": "Distances, quantities and timestamps."
+        },
+        {
+          "role": "Border",
+          "name": "Twine",
+          "hex": "#D9DCCB",
+          "usage": "Dividers and field outlines."
+        }
+      ],
+      "contrast": [
+        {
+          "pair": "Text primary on Background",
+          "foreground": "#1C271F",
+          "background": "#F9F8F1",
+          "ratio": "14.5:1",
+          "wcag": "AAA"
+        },
+        {
+          "pair": "Text primary on Surface",
+          "foreground": "#1C271F",
+          "background": "#FFFFFF",
+          "ratio": "15.4:1",
+          "wcag": "AAA"
+        },
+        {
+          "pair": "Text secondary on Surface",
+          "foreground": "#4F5D53",
+          "background": "#FFFFFF",
+          "ratio": "6.9:1",
+          "wcag": "AA"
+        },
+        {
+          "pair": "Button label on Primary",
+          "foreground": "#FFFFFF",
+          "background": "#25703A",
+          "ratio": "6.1:1",
+          "wcag": "AA"
+        },
+        {
+          "pair": "Expiring text on Surface",
+          "foreground": "#8A5800",
+          "background": "#FFFFFF",
+          "ratio": "6.0:1",
+          "wcag": "AA"
+        },
+        {
+          "pair": "Verified blue on Surface",
+          "foreground": "#1B5FBF",
+          "background": "#FFFFFF",
+          "ratio": "6.1:1",
+          "wcag": "AA"
+        }
+      ]
+    },
+    "typography": {
+      "typefaces": [
+        {
+          "role": "Headings",
+          "family": "Rubik",
+          "fallback": "-apple-system, \"Segoe UI\", Roboto, sans-serif",
+          "weights": "500, 600",
+          "rationale": "Slightly rounded and confident, friendly for a community app without feeling childish."
+        },
+        {
+          "role": "Body & UI",
+          "family": "Inter",
+          "fallback": "-apple-system, \"Segoe UI\", Roboto, sans-serif",
+          "weights": "400, 500, 600",
+          "rationale": "Very readable at small sizes for chat, dates and dietary tags."
+        }
+      ],
+      "scale": [
+        {
+          "token": "Title",
+          "size": "24px",
+          "weight": 600,
+          "lineHeight": "30px",
+          "usage": "Screen titles."
+        },
+        {
+          "token": "Listing",
+          "size": "18px",
+          "weight": 600,
+          "lineHeight": "24px",
+          "usage": "Food item names."
+        },
+        {
+          "token": "Body",
+          "size": "16px",
+          "weight": 400,
+          "lineHeight": "24px",
+          "usage": "Descriptions and chat messages."
+        },
+        {
+          "token": "Meta",
+          "size": "14px",
+          "weight": 500,
+          "lineHeight": "20px",
+          "usage": "Distance, quantity and pickup window."
+        },
+        {
+          "token": "Tag",
+          "size": "12px",
+          "weight": 600,
+          "lineHeight": "16px",
+          "usage": "Dietary tags and badges, set in uppercase with +0.04em spacing."
+        }
+      ],
+      "lineHeightAndSpacing": {
+        "bodyLineHeight": "1.5",
+        "headingLineHeight": "1.25",
+        "letterSpacing": "0; +0.04em for uppercase tags",
+        "paragraphSpacing": "12px",
+        "notes": [
+          "Chat bubbles use 15 to 16px body text at 1.4 line height with 8px vertical spacing between messages from the same sender.",
+          "Express expiry in words (\"Expires in 3 hrs\") rather than only a timestamp."
+        ]
+      }
+    },
+    "gridAndSpacing": {
+      "layoutGrid": {
+        "columns": "4 columns",
+        "gutter": "16px",
+        "margin": "16px",
+        "maxWidth": "430px (design at 390px wide)",
+        "notes": "Listings use a full-width card on list view and a 2-column grid on the map bottom sheet. Chat bubbles are limited to 75% of the width."
+      },
+      "spacingSystem": {
+        "baseUnit": "4px",
+        "scale": [
+          {
+            "token": "space-1",
+            "value": "4px"
+          },
+          {
+            "token": "space-2",
+            "value": "8px"
+          },
+          {
+            "token": "space-3",
+            "value": "12px"
+          },
+          {
+            "token": "space-4",
+            "value": "16px"
+          },
+          {
+            "token": "space-5",
+            "value": "24px"
+          },
+          {
+            "token": "space-6",
+            "value": "32px"
+          },
+          {
+            "token": "space-7",
+            "value": "48px"
+          }
+        ],
+        "usage": "16px inside cards, 12px between listing cards, and 24px between major groups."
+      },
+      "whiteSpace": [
+        "Leave room around the verified badge so it is noticed but not crammed against names.",
+        "Keep the map visible above the bottom sheet; do not cover more than 55% of it at half state.",
+        "Separate poster and neighbor flows visually with distinct tab bars and empty states."
+      ]
+    },
+    "elevation": {
+      "levels": [
+        {
+          "level": 0,
+          "name": "Base",
+          "shadow": "none",
+          "usage": "Screen backgrounds."
+        },
+        {
+          "level": 1,
+          "name": "Listing card",
+          "shadow": "0 1px 3px rgba(28,39,31,0.12)",
+          "usage": "Listing cards and chat bubbles."
+        },
+        {
+          "level": 2,
+          "name": "Map overlay",
+          "shadow": "0 4px 14px rgba(28,39,31,0.18)",
+          "usage": "Map filter chips, floating buttons and selected pin card."
+        },
+        {
+          "level": 3,
+          "name": "Bottom sheet",
+          "shadow": "0 -8px 28px rgba(28,39,31,0.22)",
+          "usage": "Listing detail, filters and claim confirmation sheets."
+        }
+      ],
+      "dropShadow": {
+        "color": "rgba(28, 39, 31, 0.12 to 0.22)",
+        "style": "Soft with slight upward direction for bottom-anchored elements",
+        "notes": "Map overlays need stronger shadows than list cards because they float over busy map imagery."
+      },
+      "visualPriority": [
+        "Trust signals (verified badge, rating) use the blue accent and are consistent everywhere.",
+        "Expiry uses Carrot and Warning colors only for urgent states so they keep their meaning.",
+        "The claim button is the sole solid green fill on the listing detail sheet."
+      ]
+    }
+  },
+  {
+    "ticketId": "DX-7521",
+    "styleDirection": {
+      "name": "Confident data overlay",
+      "summary": "A crisp, self-contained widget that looks the same on any store. Strong borders and predictable type keep it separate from host pages, and price drops are the one thing that feels celebratory.",
+      "keywords": [
+        "Self-contained",
+        "Data-first",
+        "Low-interruption",
+        "Precise"
+      ]
+    },
+    "colorPalette": {
+      "primary": {
+        "name": "Watch Indigo",
+        "hex": "#4338CA",
+        "onColor": "#FFFFFF",
+        "usage": "Track this price, Save alert, and the price line on the chart."
+      },
+      "secondary": {
+        "name": "Drop Green",
+        "hex": "#0F7B45",
+        "usage": "Price-drop indicator, below-target markers on the chart and Go to product."
+      },
+      "semantic": [
+        {
+          "role": "Success",
+          "name": "Target Hit",
+          "hex": "#0F7B45",
+          "usage": "Price is at or below the target."
+        },
+        {
+          "role": "Warning",
+          "name": "Near Target",
+          "hex": "#8A5800",
+          "usage": "Within 5% of the target price."
+        },
+        {
+          "role": "Error",
+          "name": "Price Up",
+          "hex": "#B42318",
+          "usage": "Price increased or tracking failed."
+        },
+        {
+          "role": "Info",
+          "name": "Neutral Blue",
+          "hex": "#1F5FA6",
+          "usage": "Help text and unchanged prices."
+        }
+      ],
+      "surfacesAndText": [
+        {
+          "role": "Background",
+          "name": "Popup Grey",
+          "hex": "#F3F4F8",
+          "usage": "Popup dashboard background."
+        },
+        {
+          "role": "Surface",
+          "name": "Overlay White",
+          "hex": "#FFFFFF",
+          "usage": "Overlay panel, dashboard cards and chart area."
+        },
+        {
+          "role": "Text primary",
+          "name": "Price Ink",
+          "hex": "#14151F",
+          "usage": "Prices and product names."
+        },
+        {
+          "role": "Text secondary",
+          "name": "Axis Grey",
+          "hex": "#4D5163",
+          "usage": "Chart axes, store names and dates."
+        },
+        {
+          "role": "Border",
+          "name": "Overlay Border",
+          "hex": "#8A90A6",
+          "usage": "1px border that separates the overlay from any host page."
+        }
+      ],
+      "contrast": [
+        {
+          "pair": "Text primary on Background",
+          "foreground": "#14151F",
+          "background": "#F3F4F8",
+          "ratio": "16.5:1",
+          "wcag": "AAA"
+        },
+        {
+          "pair": "Text primary on Surface",
+          "foreground": "#14151F",
+          "background": "#FFFFFF",
+          "ratio": "18.2:1",
+          "wcag": "AAA"
+        },
+        {
+          "pair": "Text secondary on Surface",
+          "foreground": "#4D5163",
+          "background": "#FFFFFF",
+          "ratio": "7.9:1",
+          "wcag": "AAA"
+        },
+        {
+          "pair": "Button label on Primary",
+          "foreground": "#FFFFFF",
+          "background": "#4338CA",
+          "ratio": "7.9:1",
+          "wcag": "AAA"
+        },
+        {
+          "pair": "Border against Surface (non-text, 3:1)",
+          "foreground": "#8A90A6",
+          "background": "#FFFFFF",
+          "ratio": "3.2:1",
+          "wcag": "AA (non-text, 3:1)"
+        },
+        {
+          "pair": "Drop green on Surface",
+          "foreground": "#0F7B45",
+          "background": "#FFFFFF",
+          "ratio": "5.3:1",
+          "wcag": "AA"
+        },
+        {
+          "pair": "Price up red on Surface",
+          "foreground": "#B42318",
+          "background": "#FFFFFF",
+          "ratio": "6.6:1",
+          "wcag": "AA"
+        }
+      ]
+    },
+    "typography": {
+      "typefaces": [
+        {
+          "role": "Headings",
+          "family": "Inter",
+          "fallback": "system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+          "weights": "600, 700",
+          "rationale": "Declare the font explicitly on the overlay so it never inherits a host page's type styles."
+        },
+        {
+          "role": "Body & UI",
+          "family": "Inter",
+          "fallback": "system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+          "weights": "400, 500",
+          "rationale": "Use tabular figures for prices so the numbers align and digits do not jitter as values change."
+        }
+      ],
+      "scale": [
+        {
+          "token": "Price",
+          "size": "28px",
+          "weight": 700,
+          "lineHeight": "32px",
+          "usage": "Current price in the overlay."
+        },
+        {
+          "token": "Title",
+          "size": "16px",
+          "weight": 600,
+          "lineHeight": "22px",
+          "usage": "Panel and product titles."
+        },
+        {
+          "token": "Body",
+          "size": "14px",
+          "weight": 400,
+          "lineHeight": "20px",
+          "usage": "Form fields and notes."
+        },
+        {
+          "token": "Axis",
+          "size": "12px",
+          "weight": 500,
+          "lineHeight": "16px",
+          "usage": "Chart labels and dates."
+        }
+      ],
+      "lineHeightAndSpacing": {
+        "bodyLineHeight": "1.45",
+        "headingLineHeight": "1.25",
+        "letterSpacing": "0; -0.01em on Price",
+        "paragraphSpacing": "8px",
+        "notes": [
+          "Reset inherited styles inside the overlay (for example with a shadow root or an all: initial wrapper) so host CSS cannot change size or color.",
+          "Always show currency symbols and two decimals, with the change in absolute and percent form (\"-$12.00, -8%\")."
+        ]
+      }
+    },
+    "gridAndSpacing": {
+      "layoutGrid": {
+        "columns": "Overlay: 4 columns in a 340px panel; Popup: single column at 380px wide",
+        "gutter": "12px",
+        "margin": "16px inside panels; 16px inset from the viewport corner",
+        "maxWidth": "Overlay 340px wide, docked bottom-right; popup 380 x 560px",
+        "notes": "The chart takes the full panel width at 16:9 with a 4 x 4 gridline structure. Dashboard rows show thumbnail, name, current price and target price on one line."
+      },
+      "spacingSystem": {
+        "baseUnit": "4px",
+        "scale": [
+          {
+            "token": "space-1",
+            "value": "4px"
+          },
+          {
+            "token": "space-2",
+            "value": "8px"
+          },
+          {
+            "token": "space-3",
+            "value": "12px"
+          },
+          {
+            "token": "space-4",
+            "value": "16px"
+          },
+          {
+            "token": "space-5",
+            "value": "24px"
+          },
+          {
+            "token": "space-6",
+            "value": "32px"
+          }
+        ],
+        "usage": "12px between controls, 16px panel padding, and 8px inside compact rows."
+      },
+      "whiteSpace": [
+        "Keep the overlay narrow and short so it never covers a host page's buy button or price.",
+        "Give the chart 16px padding and leave axes uncluttered; show only 3 to 4 tick labels.",
+        "Allow the overlay to collapse to a small pill, leaving almost nothing on screen."
+      ]
+    },
+    "elevation": {
+      "levels": [
+        {
+          "level": 0,
+          "name": "Popup base",
+          "shadow": "none",
+          "usage": "Popup dashboard background and rows."
+        },
+        {
+          "level": 1,
+          "name": "Card",
+          "shadow": "0 1px 2px rgba(20,21,31,0.10)",
+          "usage": "Tracked item cards in the dashboard.",
+          "border": "1px solid #8A90A6"
+        },
+        {
+          "level": 2,
+          "name": "Overlay",
+          "shadow": "0 8px 24px rgba(20,21,31,0.28), 0 2px 6px rgba(20,21,31,0.18)",
+          "usage": "In-page overlay panel; strongest separation from unknown host backgrounds.",
+          "border": "1px solid #8A90A6"
+        },
+        {
+          "level": 3,
+          "name": "Alert toast",
+          "shadow": "0 12px 32px rgba(20,21,31,0.32)",
+          "usage": "Price-drop notification with Go to product; dismissible and auto-hides."
+        }
+      ],
+      "dropShadow": {
+        "color": "rgba(20, 21, 31, 0.18 to 0.32)",
+        "style": "Layered (tight + wide) so it works on both light and dark host pages",
+        "notes": "Combine the shadow with a 1px border because a shadow alone disappears on dark or busy backgrounds."
+      },
+      "visualPriority": [
+        "Current price and the drop indicator are the largest and highest-contrast elements in the overlay.",
+        "The chart line is Indigo; points below target are marked in green.",
+        "Notifications sit at the top layer but stay small, dismissible and never block the host page."
+      ]
+    }
+  }
+]

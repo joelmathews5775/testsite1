@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found — DRAFTED UX</title>
+<meta name="description" content="This page doesn't exist. Head back to DRAFTED UX to generate a UI/UX project brief.">
+<meta name="robots" content="noindex">
+
+<meta name="theme-color" content="#E9EEF3" id="theme-color-meta">
+<link rel="icon" id="favicon-link" href="favicon-light.png">
+
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <a class="brand" href="index.html">
+      <span class="brand__name">DRAFTED <span class="brand__accent">UX</span></span>
+    </a>
+
+    <div class="header-actions">
+      <button type="button"
+              id="theme-toggle"
+              class="theme-toggle"
+              aria-pressed="false"
+              aria-label="Switch to dark mode">
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <line x1="12" y1="2" x2="12" y2="4"></line>
+          <line x1="12" y1="20" x2="12" y2="22"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="2" y1="12" x2="4" y2="12"></line>
+          <line x1="20" y1="12" x2="22" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <span class="theme-toggle__track" aria-hidden="true">
+          <span class="theme-toggle__thumb"></span>
+        </span>
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+
+      <a id="support-btn"
+         class="btn btn--ghost btn--small"
+         href="{{PATREON_URL}}"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Support this project on Patreon (opens in a new tab)">
+        Support
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="result-section">
+    <div class="wrap">
+      <div class="empty-state">
+        <h1 style="font-size: 1.6rem; font-family: var(--font-display); margin-bottom: 0.5rem;">Page not found</h1>
+        <p>That ticket doesn't exist. Head back to <a href="index.html">DRAFTED UX</a> to pull a real one.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; <span id="copyright-year"></span> DRAFTED UX — practice briefs for UI/UX designers.</p>
+    <p><a href="supporters.html">Meet our monthly supporters</a></p>
+    <p><a href="mailto:{{CONTACT_EMAIL}}?subject=Bug%20report%20or%20issue">Report an issue</a></p>
+  </div>
+</footer>
+
+<script src="js/theme.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var y = document.getElementById('copyright-year');
+    if (y) y.textContent = new Date().getFullYear();
+  });
+</script>
+</body>
+</html>
