@@ -45,7 +45,6 @@ const ENTRIES = [
   'supporters.html',
   'css',
   'js',
-  'data',
   'favicon-dark.png',
   'favicon-light.png',
   'robots.txt',
