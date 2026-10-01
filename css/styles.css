@@ -376,7 +376,7 @@ select, input {
    ========================================================= */
 
 .hero {
-  padding-block: var(--space-8) var(--space-7);
+  padding-block: var(--space-8);
   border-bottom: 1px solid var(--line);
 }
 
@@ -920,7 +920,7 @@ select, input {
   .wrap { padding-inline: var(--space-4); }
   .skip-link:focus { left: var(--space-4); }
   .field-row { grid-template-columns: 1fr; }
-  .hero { padding-block: var(--space-6) var(--space-5); }
+  .hero { padding-block: var(--space-6); }
   .ticket__title { font-size: 1.5rem; }
   .site-header .wrap {
     min-height: auto;
