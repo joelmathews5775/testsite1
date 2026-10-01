@@ -716,6 +716,102 @@ select, input {
 
 .ticket__actions .btn svg { width: 1.1em; height: 1.1em; }
 
+/* Reference image slider modal (opened by "Show reference") */
+body.ref-modal-open { overflow: hidden; }
+
+/* The dialog spans exactly the page content width: the same box as .wrap's
+   content area (max-width minus the side padding), at every viewport.
+   --ref-pad mirrors .wrap's padding-inline at each breakpoint. */
+.ref-modal {
+  --ref-pad: var(--space-5);
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4) var(--ref-pad);
+}
+
+@media (max-width: 640px) { .ref-modal { --ref-pad: var(--space-4); } }
+@media (max-width: 400px) { .ref-modal { --ref-pad: var(--space-3); } }
+
+.ref-modal[hidden] { display: none; }
+
+.ref-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 16, 24, 0.78);
+}
+
+.ref-modal__dialog {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 100%;
+  max-width: calc(var(--max-content) - 2 * var(--ref-pad));
+  max-height: 100%;
+  padding: var(--space-4);
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+.ref-modal__dialog:focus { outline: none; }
+
+.ref-modal__header,
+.ref-modal__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.ref-modal__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+}
+
+.ref-modal__stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.ref-modal__img {
+  display: block;
+  max-width: 100%;
+  max-height: 62vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.ref-modal__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+.ref-modal__controls .btn { text-decoration: none; line-height: normal; }
+.ref-modal [data-ref-prev][hidden],
+.ref-modal [data-ref-next][hidden] { display: none; }
+.ref-modal .btn:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 2px; }
+
+.ref-modal__caption { font-size: 0.95rem; color: var(--ink-soft); }
+.ref-modal__count { font-family: var(--font-mono); font-size: 0.85rem; color: var(--ink-faint); white-space: nowrap; }
+
 /* =========================================================
    Saved section
    ========================================================= */

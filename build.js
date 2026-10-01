@@ -32,6 +32,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const zlib = require('zlib');
 
 const SRC_DIR = __dirname;
 const OUT_DIR = path.join(__dirname, 'dist');
@@ -45,6 +46,8 @@ const ENTRIES = [
   'supporters.html',
   'css',
   'js',
+  'img',
+  'downloads',
   'favicon-dark.png',
   'favicon-light.png',
   'robots.txt',
@@ -157,8 +160,139 @@ function copyRecursive(srcPath, destPath, config) {
   }
 }
 
+
+// Reference screenshots live in img/<ticketId>/. A static site can't list
+// a folder from the browser, so this writes js/references.js — a map of
+// ticketId -> image file names — for the "Show reference" button to read.
+// A brief only gets that button if its folder exists (and has images).
+// Runs before the copy step so the fresh manifest is what gets deployed.
+const IMAGE_EXTENSIONS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg', '.avif']);
+
+function generateReferences() {
+  const imgDir = path.join(SRC_DIR, 'img');
+  const refs = {};
+
+  if (fs.existsSync(imgDir)) {
+    fs.readdirSync(imgDir).sort().forEach(function (folder) {
+      const folderPath = path.join(imgDir, folder);
+      if (!fs.statSync(folderPath).isDirectory()) return;
+      const files = fs.readdirSync(folderPath)
+        .filter(function (f) { return IMAGE_EXTENSIONS.has(path.extname(f).toLowerCase()); })
+        .sort(function (a, b) { return a.localeCompare(b, undefined, { numeric: true }); });
+      if (files.length) refs[folder] = files;
+    });
+  }
+
+  fs.writeFileSync(
+    path.join(SRC_DIR, 'js', 'references.js'),
+    'const REFERENCE_IMAGES = ' + JSON.stringify(refs, null, 2) + ';\n',
+    'utf8'
+  );
+
+  generateReferenceZips(refs);
+}
+
+// "Download all" in the reference slider links to a ready-made ZIP per
+// ticket: downloads/<ticketId>-reference.zip, built here from img/<ticketId>/.
+// Building at build time (rather than in the browser) means the button is a
+// plain download link, so it also works when index.html is opened straight
+// from disk, where browsers block the fetch() calls a client-side zip needs.
+// Small self-contained ZIP writer (deflate via Node's zlib, no dependencies).
+const CRC_TABLE = (function () {
+  const table = new Uint32Array(256);
+  for (let n = 0; n < 256; n++) {
+    let c = n;
+    for (let k = 0; k < 8; k++) c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);
+    table[n] = c >>> 0;
+  }
+  return table;
+})();
+
+function crc32(buf) {
+  let c = 0xFFFFFFFF;
+  for (let i = 0; i < buf.length; i++) c = CRC_TABLE[(c ^ buf[i]) & 0xFF] ^ (c >>> 8);
+  return (c ^ 0xFFFFFFFF) >>> 0;
+}
+
+// Fixed timestamp (2026-01-01 00:00) so rebuilding gives byte-identical
+// ZIPs and git doesn't show them as changed every time.
+const ZIP_DOS_DATE = ((2026 - 1980) << 9) | (1 << 5) | 1;
+const ZIP_DOS_TIME = 0;
+
+function createZip(files) {
+  const chunks = [];
+  const central = [];
+  let offset = 0;
+
+  files.forEach(function (file) {
+    const name = Buffer.from(file.name, 'utf8');
+    const crc = crc32(file.data);
+    const deflated = zlib.deflateRawSync(file.data, { level: 9 });
+    const useDeflate = deflated.length < file.data.length; // PNGs often don't shrink
+    const body = useDeflate ? deflated : file.data;
+    const method = useDeflate ? 8 : 0;
+
+    const local = Buffer.alloc(30);
+    local.writeUInt32LE(0x04034b50, 0);
+    local.writeUInt16LE(20, 4);              // version needed
+    local.writeUInt16LE(0x0800, 6);          // flags: UTF-8 file names
+    local.writeUInt16LE(method, 8);
+    local.writeUInt16LE(ZIP_DOS_TIME, 10);
+    local.writeUInt16LE(ZIP_DOS_DATE, 12);
+    local.writeUInt32LE(crc, 14);
+    local.writeUInt32LE(body.length, 18);
+    local.writeUInt32LE(file.data.length, 22);
+    local.writeUInt16LE(name.length, 26);
+    local.writeUInt16LE(0, 28);
+
+    const entry = Buffer.alloc(46);
+    entry.writeUInt32LE(0x02014b50, 0);
+    entry.writeUInt16LE(20, 4);              // version made by
+    entry.writeUInt16LE(20, 6);              // version needed
+    entry.writeUInt16LE(0x0800, 8);
+    entry.writeUInt16LE(method, 10);
+    entry.writeUInt16LE(ZIP_DOS_TIME, 12);
+    entry.writeUInt16LE(ZIP_DOS_DATE, 14);
+    entry.writeUInt32LE(crc, 16);
+    entry.writeUInt32LE(body.length, 20);
+    entry.writeUInt32LE(file.data.length, 24);
+    entry.writeUInt16LE(name.length, 28);
+    entry.writeUInt32LE(offset, 42);         // local header offset
+    central.push(Buffer.concat([entry, name]));
+
+    chunks.push(local, name, body);
+    offset += local.length + name.length + body.length;
+  });
+
+  const centralBuf = Buffer.concat(central);
+  const end = Buffer.alloc(22);
+  end.writeUInt32LE(0x06054b50, 0);
+  end.writeUInt16LE(files.length, 8);
+  end.writeUInt16LE(files.length, 10);
+  end.writeUInt32LE(centralBuf.length, 12);
+  end.writeUInt32LE(offset, 16);
+
+  return Buffer.concat(chunks.concat([centralBuf, end]));
+}
+
+function generateReferenceZips(refs) {
+  const dir = path.join(SRC_DIR, 'downloads');
+  fs.rmSync(dir, { recursive: true, force: true }); // drop zips for removed folders
+  const ids = Object.keys(refs);
+  if (!ids.length) return;
+  fs.mkdirSync(dir, { recursive: true });
+
+  ids.forEach(function (id) {
+    const files = refs[id].map(function (file) {
+      return { name: file, data: fs.readFileSync(path.join(SRC_DIR, 'img', id, file)) };
+    });
+    fs.writeFileSync(path.join(dir, id + '-reference.zip'), createZip(files));
+  });
+}
+
 function build() {
   const config = getConfig();
+  generateReferences();
 
   fs.rmSync(OUT_DIR, { recursive: true, force: true });
   fs.mkdirSync(OUT_DIR, { recursive: true });
