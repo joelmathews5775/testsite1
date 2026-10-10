@@ -50,6 +50,7 @@ const ENTRIES = [
   'downloads',
   'favicon-dark.png',
   'favicon-light.png',
+  'og-image.png',
   'robots.txt',
   'sitemap.xml'
 ];
@@ -290,7 +291,79 @@ function generateReferenceZips(refs) {
   });
 }
 
-function build() {
+// ---------------------------------------------------------------------
+// Minification (dist only — the source files in git stay readable).
+// CSS and JS go through esbuild; HTML through html-minifier-terser (which
+// also minifies inline <script>/<style> and the JSON-LD block). Both are
+// devDependencies in package.json. If they aren't installed the build
+// still succeeds and just ships unminified files, with a warning, so a
+// missing install can never take the site down.
+// js/data.js is skipped: copyRecursive() already compacts it above.
+// ---------------------------------------------------------------------
+function loadMinifiers() {
+  const tools = {};
+  try { tools.esbuild = require('esbuild'); }
+  catch (e) { console.warn('[build] esbuild not installed — CSS/JS will not be minified (run `npm install`).'); }
+  try { tools.html = require('html-minifier-terser'); }
+  catch (e) { console.warn('[build] html-minifier-terser not installed — HTML will not be minified (run `npm install`).'); }
+  return tools;
+}
+
+function listFiles(dir) {
+  return fs.readdirSync(dir).reduce(function (all, name) {
+    const full = path.join(dir, name);
+    return all.concat(fs.statSync(full).isDirectory() ? listFiles(full) : [full]);
+  }, []);
+}
+
+async function minifyOutput() {
+  const tools = loadMinifiers();
+  if (!tools.esbuild && !tools.html) return;
+
+  let before = 0;
+  let after = 0;
+
+  const files = listFiles(OUT_DIR).filter(function (f) {
+    return ['.css', '.js', '.html'].indexOf(path.extname(f).toLowerCase()) !== -1 &&
+      path.basename(f) !== 'data.js';
+  });
+
+  for (const file of files) {
+    const ext = path.extname(file).toLowerCase();
+    const source = fs.readFileSync(file, 'utf8');
+    let output = source;
+
+    try {
+      if (ext === '.css' && tools.esbuild) {
+        output = tools.esbuild.transformSync(source, { loader: 'css', minify: true }).code;
+      } else if (ext === '.js' && tools.esbuild) {
+        output = tools.esbuild.transformSync(source, { loader: 'js', minify: true, target: 'es2018' }).code;
+      } else if (ext === '.html' && tools.html) {
+        output = await tools.html.minify(source, {
+          collapseWhitespace: true,
+          conservativeCollapse: true, // keep one space between inline elements
+          collapseBooleanAttributes: true,
+          removeComments: true,
+          minifyCSS: true,
+          minifyJS: true,
+          processScripts: ['application/ld+json']
+        });
+      }
+    } catch (err) {
+      console.warn('[build] Could not minify ' + path.relative(OUT_DIR, file) + ' — keeping original. ' + err.message);
+      output = source;
+    }
+
+    before += Buffer.byteLength(source);
+    after += Buffer.byteLength(output);
+    fs.writeFileSync(file, output, 'utf8');
+  }
+
+  console.log('[build] Minified ' + files.length + ' files: ' +
+    (before / 1024).toFixed(1) + ' KB -> ' + (after / 1024).toFixed(1) + ' KB');
+}
+
+async function build() {
   const config = getConfig();
   generateReferences();
 
@@ -303,7 +376,12 @@ function build() {
     copyRecursive(src, path.join(OUT_DIR, entry), config);
   });
 
+  await minifyOutput();
+
   console.log('[build] Done — output in ./dist');
 }
 
-build();
+build().catch(function (err) {
+  console.error(err);
+  process.exit(1);
+});
